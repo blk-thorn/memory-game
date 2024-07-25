@@ -45,7 +45,7 @@ min-width: 100%;
 flex-direction: row; */
 padding: 30px 0px 90px 0px;
 border-color: #FFFFFF;
-background-image:url(/img/pets/noise_transparent@2x.svg);
+background-image:url(./img/pets/noise_transparent@2x.svg);
 background-size: 10%;
 text-align: left;
 }
@@ -164,7 +164,7 @@ margin: 0 auto;
 display: flex;
 flex-direction: row;
 column-gap: 41.5px;
-background-image:url(/img/pets/noise_transparent@2x.svg);
+background-image:url(./img/pets/noise_transparent@2x.svg);
 background-size: 10%;
 }
 
@@ -641,7 +641,7 @@ background: radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 10
 }
 
 .footer__inner {
-background:url(/img/pets/noise_transparent@2x.svg);
+background:url(./img/pets/noise_transparent@2x.svg);
 background-size: 10%;
 }
 
@@ -770,7 +770,7 @@ background: radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 10
 }
 
 .footer__inner {
-background:url(/img/pets/noise_transparent@2x.svg);
+background:url(./img/pets/noise_transparent@2x.svg);
 background-size: 10%;
 }
 
