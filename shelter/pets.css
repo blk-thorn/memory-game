@@ -101,7 +101,7 @@ cursor: pointer;
 .menu__item:hover,
 .menu__item-link:hover {
 color: #292929;
-
+transition-duration: 0.3s;
 }
 
 
@@ -154,7 +154,7 @@ cursor: pointer;
 
 .cards__item:hover {
  box-shadow: 0px 2px 35px 14px #0D0D0D0A;
-
+ transition-duration: 0.3s;
 }
 
 .cards__item-title {
@@ -191,6 +191,7 @@ cursor: pointer;
 
 .cards__btn:hover {
 background-color:#FDDCC4;
+transition-duration: 0.3s;
 }
 
 .footer {
