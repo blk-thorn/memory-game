@@ -1,0 +1,252 @@
+*,
+*::before,
+*::after {
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+ul {
+list-style: none;
+}
+
+a {
+text-decoration: none;
+}
+
+
+.container {
+margin: 0 auto;
+max-width: 100%;
+min-width: 1280px;
+justify-content: center;
+align-self: center;
+place-self: center;
+}
+
+.home {
+display: flex;
+flex-direction: column;
+column-gap: 42px;
+/* background:url(/img/pets/noise_transparent@2x.svg);
+background-size: 10%; */
+background: 
+radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%); 
+align-items: center; 
+}
+
+.header {
+min-width: 100%;
+/* display: flex;
+flex-direction: row; */
+padding: 30px 0px 90px 0px;
+border-color: #FFFFFF;
+background-image:url(/img/pets/noise_transparent@2x.svg);
+background-size: 10%;
+text-align: left;
+}
+
+.header__content {
+max-width: 1280px;
+margin: 0 auto;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+/* padding: 0px 40px; */
+}
+
+.logo,
+.logo__link {
+text-decoration: none;
+display: flex;
+flex-flow: column nowrap;
+row-gap: 9.2px;
+/* align-self: flex-start; */
+}
+
+
+.logo__title {
+color: rgb(241, 205, 179);
+font-family: Georgia;
+font-size: 31.9px;
+font-weight: 400;
+line-height: 110%;
+letter-spacing: 0.063em;
+text-align: left;
+padding-top: 0.5px;
+}
+
+.logo__subtitle {
+color: #CDCDCD;
+font-family: Arial;
+font-size: 13px;
+font-weight: 400;
+line-height: 15px;
+letter-spacing: 0.1em;
+padding-left: 4px;
+}
+
+.menu {
+max-width: 1280px;
+min-width: 1200px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+}
+
+.menu__list {
+list-style: none;
+display: flex;
+flex-flow: row wrap;
+column-gap: 35.5px;
+align-content: center;
+}
+
+.menu__item,
+.menu__item-link {
+text-decoration: none;
+font-family: Arial;
+font-size: 15px;
+font-weight: 400;
+line-height: 24px;
+text-align: left;
+color: #CDCDCD;
+cursor: pointer;
+/* letter-spacing: 0.003em; */
+}
+
+
+.menu__item--border {
+list-style: none;
+width: 114px;
+height: 27px;
+display: flex;
+flex-direction: column;
+
+
+color: #CDCDCD;
+font-family: Arial;
+font-size: 15px;
+font-weight: 400;
+line-height: 160%;
+letter-spacing: 0px;
+text-align: left;
+border-bottom: 3px solid  rgb(241, 205, 179);
+}
+
+.menu__item:hover,
+.menu__item-link:hover {
+    color: #FAFAFA;
+    transition-duration: .2s;
+}
+
+
+.menu__item--border {
+list-style: none;
+color: #FAFAFA;
+font-family: Arial;
+font-size: 15px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0px;
+text-align: left;
+border-bottom: 3px solid  rgb(241, 205, 179);
+}
+
+.not-only {
+min-width: 100%;
+margin: 0 auto;
+display: flex;
+flex-direction: row;
+column-gap: 41.5px;
+background-image:url(/img/pets/noise_transparent@2x.svg);
+background-size: 10%;
+}
+
+.not-only__container {
+/* position: relative; */
+max-width: 1200px;
+display: flex;
+margin: 0 auto;
+justify-content: space-between;
+}
+
+
+.not-only__content {
+/* position: relative; */
+display: flex;
+flex-direction: column;
+row-gap: 42px;
+width: 25%;
+padding-top: 163px;
+} 
+
+
+.not-only__title {
+min-width: 310px;
+min-height: 114px;
+flex-direction: row;
+align-items: center;
+color: #FFFFFF;
+font-family: Georgia;
+font-size: 44px;
+font-weight: 400;
+line-height: 57px;
+text-align: left;
+
+}
+
+.not-only__text {
+/* position: relative; */
+width: 460px;
+display: flex;
+flex-direction: row;
+align-items: center;
+color: #CDCDCD;
+font-family: Arial;
+font-size: 15px;
+font-weight: 400;
+line-height: 24px;
+text-align: left;
+}
+
+.not-only__btn {
+/* position: relative; */
+border: none;
+font: inherit;
+color: inherit;
+background-color: transparent;
+cursor: pointer;
+width: 207px;
+height: 52px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 15px 45px 15px 45px;
+border-radius: 100px;
+background: #F1CDB3;
+
+color: rgb(41, 41, 41);
+font-family: Georgia;
+font-size: 17px;
+font-weight: 400;
+line-height: 22.1px;
+letter-spacing: 0.059em;
+}
+
+.not-only__btn:hover {
+background-color: #FDDCC4;
+cursor: pointer;
+transition-duration: .2s;
+}
+
+.start-puppy {
+width: 698px;
+height: 728px;
+}
