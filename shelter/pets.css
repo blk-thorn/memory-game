@@ -101,7 +101,7 @@ cursor: pointer;
 .menu__item:hover,
 .menu__item-link:hover {
 color: #292929;
-transition-duration: 0.5s;
+transition-duration: 0.3s;
 }
 
 
@@ -152,7 +152,7 @@ border-radius: 9px;
 }
 
 .cards__item:hover {
- box-shadow: 0px 2px 35px 14px #0D0D0D0A;
+ box-shadow: 0px 12px 45px 24px #0D0D0D0A;
  transition-duration: 0.5s;
 }
 
@@ -329,12 +329,37 @@ padding-top: 45px;
 padding-bottom: 96px;
 }
 
-
-.pagenav__button--right {
-cursor: pointer;
+.pagenav__item {
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background-color: #F6F6F6;
+border: 2px solid #F1CDB3
 }
 
-.pagenav__button--left {
+.pagenav__disabled {
+    border: 2px solid #CDCDCD;
+}
+
+li.pagenav__disabled {
 cursor: not-allowed;
+pointer-events: all !important;
 }
+
+.pagenav__active {
+    border: 2px solid #F1CDB3 !important;
+    background:  #F1CDB3 !important;
+    }
+
+.pagenav__button--right:hover {
+    background: #FDDCC4;
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+
 
