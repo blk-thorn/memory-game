@@ -611,12 +611,19 @@ text-align: left;
 width: 349px;
 height: 43px;
 display: flex;
-flex-direction: row;
+/* flex-direction: row;
 column-gap: 15px;
-align-items: center;
+align-items: center; */
 padding: 10px 15px 10px 15px;
 border-radius: 9px;
 background: rgb(241, 205, 179);
+}
+
+.credit-card__link {
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+    align-items: center;   
 }
 
 .credit-card__number {
