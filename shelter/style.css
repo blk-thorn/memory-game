@@ -124,10 +124,9 @@ transition-duration: 0.5s;
 
 
 .menu__item--border {
-padding-top: 0.2px;
 list-style: none;
 width: 114px;
-height: 27px;
+height: 26px;
 display: flex;
 flex-direction: column;
 
@@ -668,21 +667,20 @@ padding: 40px 40px 0px 40px;
 
 
 .contacts {
-/* position: relative; */
 display: flex;
 flex-direction: column;
-row-gap: 39px; 
-padding-top: 17px;
-
+flex-wrap: wrap;
+row-gap: 39.5px; 
+padding-top: 16.5px;
 }
 
 .locations {
 min-width: max-content;
-/* position: relative; */
 display: flex;
 flex-direction: column;
+flex-wrap: wrap;
 row-gap: 32px; 
-padding-top: 17px;
+padding-top: 16.5px;
 margin-left: -8px;
 }
 
