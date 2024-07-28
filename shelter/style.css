@@ -507,10 +507,6 @@ place-content: center;
 padding: 59px 40px 100px 40px;
 }
 
-.help-list:nth-child(1) {
-    padding-left:10px;
-}
-
 .help__list-item {
 display: flex;
 flex-direction: column;
@@ -734,9 +730,9 @@ transition-duration: 0.5s;
 }
 
 .contact__link:hover > .contact__text,
-.locations__link:hover > .contact__text {
-color: #fadac4;
-/* color: #FDDCC4; */
+.locations__link:hover > .locations__text {
+/* color: #fadac4; */
+color: #FDDCC4;
 }
 
 
@@ -764,8 +760,6 @@ letter-spacing: 0.06em;
 /* position: relative; */
 padding-top: 1px;
 display: flex;
-/* width: fit-content;
-height: fit-content; */
 }
 
 
@@ -776,10 +770,6 @@ width: 300px;
 height: 310px;
 
 }
-
-/* .locations__item--address {
-padding-top: -5px;
-} */
 
 .footer {
 /* position: relative; */
@@ -803,116 +793,4 @@ flex-wrap: wrap;
 row-gap: 30px;
 justify-content: space-between;
 padding: 40px 40px 0px 40px;
-}
-
-
-.contacts {
-/* position: relative; */
-display: flex;
-flex-direction: column;
-row-gap: 39px; 
-padding-top: 17px;
-
-}
-
-.locations {
-min-width: max-content;
-/* position: relative; */
-display: flex;
-flex-direction: column;
-row-gap: 32px; 
-padding-top: 17px;
-margin-left: -8px;
-}
-
-
-.contacts__title,
-.locations__title {
-/* position: relative; */
-height: 90px;
-color: rgb(255, 255, 255);
-font-family: Georgia;
-font-size: 35px;
-font-weight: 400;
-line-height: 45px;
-letter-spacing: 0.06em;
-text-align: left;
-opacity: 0.9;
-}
-
-.locations__title {
-padding-left: 1px;
-}
-
-.contacts__list {
-list-style: none;
-display: flex;
-flex-direction: column;
-row-gap: 40px;
-}
-
-.locations__list {
-list-style: none;
-display: flex;
-flex-direction: column;
-row-gap: 33px;
-}
-
-.contact__link,
-.locations__link {
-text-decoration: none;
-display: flex;
-flex-direction: row;
-align-items: center;
-column-gap: 20px;
-}
-
-.locations__icon {
- margin-top: -2px;
-}
-
-.locations__icon2{
-    margin-top: -1px;
-}
-
-.locations__item {
-display: flex;
-flex-wrap: wrap;
-/* width: fit-content;
-height: 32px; */
-}
-
-.locations__text {
-white-space: none;
-}
-
-.contact__text,
-.locations__text {
-color: rgb(241, 205, 179);
-font-family: Georgia;
-font-style: normal;
-font-size: 20px;
-font-weight: 400;
-line-height: 23px;
-letter-spacing: 0.06em;
-}
-
-.locations__item--address {
-/* position: relative; */
-display: flex;
-/* width: fit-content;
-height: fit-content; */
-}
-
-
-.footer-puppy {
-display: flex;
-/* position: relative; */
-width: 300px;
-height: 310px;
-
-}
-
-.locations__item--address {
-padding-top: -5px;
 }

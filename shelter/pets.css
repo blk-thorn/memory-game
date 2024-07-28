@@ -286,7 +286,8 @@ transition-duration: 0.5s;
 
 .contact__link:hover > .contact__text,
 .locations__link:hover > .locations__text {
-color: #fadac4;
+/* color: #fadac4; */
+color: #FDDCC4;
 }
 
 .locations__item {
