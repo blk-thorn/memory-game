@@ -94,6 +94,7 @@ line-height: 24px;
 text-align: left;
 color: #545454;
 cursor: pointer;
+transition-duration: 0.5s;
 /* letter-spacing: 0.003em; */
 }
 
@@ -101,7 +102,6 @@ cursor: pointer;
 .menu__item:hover,
 .menu__item-link:hover {
 color: #292929;
-transition-duration: 0.3s;
 }
 
 
@@ -149,16 +149,19 @@ height: 435px;
 align-items: center;
 background-color: #FAFAFA;
 border-radius: 9px;
+transition-duration: 0.5s;
+}
+
+.cards__btn {
+transition-duration: 0.5s;  
 }
 
 .cards__item:hover {
  box-shadow: 0px 12px 45px 24px #0D0D0D0A;
- transition-duration: 0.5s;
 }
 
 .cards__item:hover > .cards__btn {
 background-color:#FDDCC4;
-transition-duration: 0.5s;
 }
 
 .cards__item-title {
@@ -278,8 +281,13 @@ display: flex;
 flex-direction: row;
 align-items: center;
 column-gap: 20px;
+transition-duration: 0.5s;
 }
 
+.contact__link:hover > .contact__text,
+.locations__link:hover > .locations__text {
+color: #fadac4;
+}
 
 .locations__item {
 display: flex;
@@ -338,11 +346,12 @@ width: 50px;
 height: 50px;
 border-radius: 50%;
 background-color: #F6F6F6;
-border: 2px solid #F1CDB3
+border: 2px solid #F1CDB3;
+transition-duration: 0.5s;
 }
 
 .pagenav__disabled {
-    border: 2px solid #CDCDCD;
+border: 2px solid #CDCDCD;
 }
 
 li.pagenav__disabled {
@@ -351,14 +360,14 @@ pointer-events: all !important;
 }
 
 .pagenav__active {
-    border: 2px solid #F1CDB3 !important;
-    background:  #F1CDB3 !important;
-    }
+cursor: default;
+border: 2px solid #F1CDB3 !important;
+background:  #F1CDB3 !important;
+}
 
 .pagenav__button--right:hover {
-    background: #FDDCC4;
-    transition-duration: 0.5s;
-    cursor: pointer;
+background: #FDDCC4;
+cursor: pointer;
 }
 
 
