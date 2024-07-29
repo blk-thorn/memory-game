@@ -292,26 +292,26 @@ transition-duration: 0.5s;
     }
     
     .contact__link:hover {
-        color: #f1b387;
-        fill:#f1b387;
+        color: #FDDCC4;
+        fill:#FDDCC4;
       
        .icon__path {
-        fill: #f1b387;
+        fill: #FDDCC4;
         }
         .contact__text {
-            color: #f1b387;
+            color: #FDDCC4;
         }
     }
     
     .locations__link:hover {
-        color: #f1b387;
-        fill:#f1b387;
+        color: #FDDCC4;
+        fill:#FDDCC4;
     
        .icon__path{
-        fill: #f1b387;
+        fill: #FDDCC4;
         }
         .locations__text {
-            color: #f1b387;
+            color: #FDDCC4;
         }
     }
 

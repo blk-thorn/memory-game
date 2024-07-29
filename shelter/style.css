@@ -532,15 +532,15 @@ transition-duration: 0.5s;
 }
 
 .help__list-link:hover {
- fill: #f1b387;
- color:  #f1b387;
+ fill: #FDDCC4;
+ color:  #292929;;
 
 .help__icon {
-   fill: #f1b387;  
+   fill: #FDDCC4;  
 }
 
 .help__list-text {
-    color: rgb(178, 178, 178);
+    color: #292929;
 }
 }
 
@@ -640,6 +640,7 @@ align-items: center; */
 padding: 10px 15px 10px 15px;
 border-radius: 9px;
 background: rgb(241, 205, 179);
+transition-duration: 0.5s;
 }
 
 .credit-card__link {
@@ -647,6 +648,11 @@ display: flex;
 flex-direction: row;
 column-gap: 15px;
 align-items: center;   
+}
+
+.credit-card:hover {
+    background: #FDDCC4;
+    cursor: pointer;
 }
 
 .credit-card__number {
@@ -760,26 +766,26 @@ transition-duration: 0.5s;
 }
 
 .contact__link:hover {
-    color: #f1b387;
-    fill:#f1b387;
+    color: #FDDCC4;  
+    fill:#FDDCC4;  
   
    .icon__path {
-    fill: #f1b387;
+    fill: #FDDCC4;  
     }
     .contact__text {
-        color: #f1b387;
+        color: #FDDCC4;
     }
 }
 
 .locations__link:hover {
-    color: #f1b387;
-    fill:#f1b387;
+    color: #FDDCC4;  
+    fill:#FDDCC4;  
 
    .icon__path{
-    fill: #f1b387;
+    fill: #FDDCC4;  
     }
     .locations__text {
-        color: #f1b387;
+        color: #FDDCC4;
     }
 }
 
