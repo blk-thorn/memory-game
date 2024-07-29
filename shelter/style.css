@@ -540,7 +540,7 @@ transition-duration: 0.5s;
 }
 
 .help__list-text {
-    color: #f1b387;
+    color: rgb(178, 178, 178);
 }
 }
 
