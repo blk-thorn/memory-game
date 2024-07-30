@@ -157,10 +157,12 @@ transition-duration: 0.5s;
 }
 
 .cards__item:hover {
- box-shadow: 0px 12px 45px 24px #0D0D0D0A;
+background-color: #FFFFFF;
+box-shadow: 0px 12px 45px 24px #0D0D0D0A;
 }
 
 .cards__item:hover > .cards__btn {
+border: 2px solid #FDDCC4;
 background-color:#FDDCC4;
 }
 
@@ -394,6 +396,7 @@ background:  #F1CDB3 !important;
 }
 
 .pagenav__button--right:hover {
+border: 2px solid #FDDCC4;
 background: #FDDCC4;
 cursor: pointer;
 }

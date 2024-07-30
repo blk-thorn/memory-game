@@ -367,11 +367,13 @@ transition-duration: 0.5s;
 }
 
 .slider__card:hover {
+background-color: #FFFFFF;
 box-shadow: 0px 12px 45px 24px #0D0D0D0A;
 cursor: pointer;
 }
 
 .slider__card:hover > .card__btn {
+border: 2px solid #FDDCC4;
 background: #FDDCC4;
 cursor: pointer;
 }
@@ -423,6 +425,7 @@ transition-duration: 0.5s;
 }
 
 .slider__btn:hover{
+border: 2px solid #FDDCC4;
 background: #FDDCC4;
 cursor: pointer;
 }
