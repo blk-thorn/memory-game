@@ -159,6 +159,7 @@ transition-duration: 0.5s;
 .cards__item:hover {
 background-color: #FFFFFF;
 box-shadow: 0px 12px 45px 24px #0D0D0D0A;
+cursor: pointer;
 }
 
 .cards__item:hover > .cards__btn {
