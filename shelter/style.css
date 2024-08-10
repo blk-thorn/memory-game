@@ -1268,3 +1268,133 @@ max-height: 310px;
        align-self: center;
        text-align: center;
     }
+
+    .pets {
+        overflow-x: hidden;
+        padding-bottom: 41px;
+      }
+
+      .slider__card:nth-child(3),
+      .slider__card:nth-child(4) {
+       display: none;
+      }
+
+      .pets__slider {
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 41px 0px;
+        row-gap: 0px;
+      }
+
+      .slider__btn--right {
+        margin-left: 133px;
+        margin-top: 20px; 
+      }  
+
+      .slider__btn--left {
+        margin-right: 133px;
+        margin-top: -52px;
+      }  
+
+      .slider__card:nth-child(2) {
+        order: 1;
+      }
+      .slider__card:nth-child(1) {
+        order: 2;
+      }
+
+      /* .slider__card:nth-child(5) {
+        order: 3;
+      } */
+
+      .pets__btn {
+        margin: 1px auto;
+      }
+
+
+      .help__list {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+        gap: 30px 0px;
+        justify-content: space-between;
+        padding: 41px 15px 40px 15px;
+      }
+
+      .help__title {
+        padding-top: 42px;
+      }
+
+      .help__list-item {
+       height: 87px;
+       width: 130px; 
+      }
+
+      .help__list-icon {
+        max-width: 50px;
+        padding-bottom:16px;
+      }
+
+      .help__list-text {
+        margin: 0;
+        padding: 0;
+        font-size: clamp(0.9375rem, 0.7138rem + 1.1186vw, 1.25rem);
+      }
+
+
+      .in-addition {
+        padding: 0;
+        display: flex;
+        flex-direction: column-reverse;
+      }
+
+      .in-addition__content{
+        padding: 0;
+        max-width: 100%;
+        display: flex;
+        row-gap: 22px;
+        align-items: center;
+      }
+
+      .in-addition__subtitle {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 130%;
+        letter-spacing: 0;
+      }
+
+      .in-addition__text {
+       max-width: 87%;
+       font-style: italic;
+       font-weight: 400;
+       font-size: 12px;
+       line-height: 150%;
+       text-align: justify;
+    
+      }
+    
+
+     .credit-card {
+        padding: 0;
+        display: flex;
+        max-width: 87.5%;
+        justify-content: center;
+
+     }
+
+     .credit-card__number {
+        font-weight: 400;
+        font-size: clamp(0.9375rem, 0.7138rem + 1.1186vw, 1.25rem);
+        line-height: 110%;
+        letter-spacing: 0.06em;
+     }
+
+     .in-addition__img {
+        padding-top: 40px;
+        padding-bottom: 41.5px;
+        margin: 0 auto;
+        max-width: 82%;
+     }
+
+     
