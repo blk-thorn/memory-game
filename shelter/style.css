@@ -1043,3 +1043,22 @@ max-height: 310px;
     }
 }
 
+
+
+@media (max-width:768px) {
+    .help__list {
+        /* display: grid;
+        grid-template-columns: repeat(3, 1fr); */
+        display: flex;
+        gap: 56px 65px;
+        margin: 0 auto;
+        padding: 60px 39px 101px 40px;
+
+    }
+    .help__list-item {
+        width: 100%;
+    }
+
+}
+
+
