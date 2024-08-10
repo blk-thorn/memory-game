@@ -405,3 +405,31 @@ border: 2px solid #FDDCC4;
 background: #FDDCC4;
 cursor: pointer;
 }
+
+
+@media (max-width:768px) and (max-width:1024px) {
+    .header__content {
+        max-width: 100%;
+        padding: 30px 30px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .menu__list {
+        padding: 0;
+    }
+
+    .cards__container {
+        padding: 29px 74px;
+        justify-content: space-around;
+    }
+    .cards__item:nth-child(7),
+    .cards__item:nth-child(8) {
+        display: none;
+    }
+
+    .pagenav {
+        padding: 11px 0px 76px 0px;
+    }
+
+    
