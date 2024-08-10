@@ -1062,3 +1062,53 @@ max-height: 310px;
 }
 
 
+@media (min-width:768px) and (max-width:1024px) {
+    .in-addition {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        padding-bottom: 100px;
+    }
+
+    .in-addition__content {
+        max-width: 50.5%;
+        margin: 0 auto;
+    }
+
+    .in-addition__img {
+        margin-top: 48.5px;
+    }
+
+    
+    .contacts {
+        margin-top: -25px;
+        padding: 0 25px;
+
+    }
+    .locations  {
+        margin-top: -25px;
+        padding: 0 31px;
+    }
+
+    .footer {
+        box-sizing: unset;
+    }
+
+    .footer__nav {
+        padding: 55px 40px 0px 40px;
+    }
+
+    .footer-puppy {
+        height: 100%;
+        width: 100%;
+        padding-top: 35px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: unset;
+    }
+
+}
+
+
