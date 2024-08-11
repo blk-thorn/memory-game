@@ -36,7 +36,7 @@ margin: 0 auto;
 display: flex;
 flex-direction: column;
 column-gap: 42px;
-background: url(./img/pets/noise_transparent@2x.svg) top left / 10% repeat,
+background: url(./img/pets/noise_transparent@2x.svg) top left / 150px repeat,
 radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
 align-items: center; 
 }
@@ -742,7 +742,7 @@ text-align: left;
 /* position: relative; */
 flex-direction: row;
 justify-content: space-between;
-background: url(./img/pets/noise_transparent@2x.svg) top left / 10% repeat, 
+background: url(./img/pets/noise_transparent@2x.svg) top left / 150px repeat, 
 radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%),
 #211f20;
 }
@@ -892,13 +892,13 @@ max-height: 310px;
 }
 
 
-@media (max-width:768px) {
+/* @media (max-width:768px) {
     .home {
         margin: 0 auto;
         background: url(./img/pets/noise_transparent@2x.svg) top left / 15% repeat,
         radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
     }
-}
+} */
 
 
 @media (max-width:768px) {
