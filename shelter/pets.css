@@ -432,4 +432,34 @@ cursor: pointer;
         padding: 11px 0px 76px 0px;
     }
 
-    
+
+    .contacts {
+        margin-top: -24px;
+        padding: 0 24px;
+
+    }
+    .locations  {
+        margin-top: -24px;
+        padding: 0 32px;
+    }
+
+    .footer {
+        box-sizing: unset;
+    }
+
+    .footer__nav {
+        padding: 55px 40px 0px 40px;
+    }
+
+    .footer-puppy {
+        width: 43.5%;
+        padding-top: 35px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: unset;
+    }
+
+}
+
