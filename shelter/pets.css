@@ -210,8 +210,9 @@ background: radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 10
 }
 
 .footer__inner {
-background:url(./img/pets/noise_transparent@2x.svg);
-background-size: 10%;
+    background: url(./img/pets/noise_transparent@2x.svg) top left / 150px repeat, 
+    radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%),
+    #211f20;
 }
 
 
