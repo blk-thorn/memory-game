@@ -989,23 +989,23 @@ max-height: 310px;
 @media (min-width:769px) and (max-width:1024px) {
     .about__content { 
         max-width: 100%;
-        margin-bottom: 80px !important;
-        display: flex !important;
-        flex-direction: column-reverse !important;
-        text-align: left !important;
-        align-items: center !important;
+        margin-bottom: 80px;
+        display: flex;
+        flex-direction: column-reverse;
+        text-align: left;
+        align-items: center;
     }
 
     .about__text {
-        max-width: 100% !important;
-        display: flex !important;
+        max-width: 100%;
+        display: flex;
         margin-left: -11px;
         margin-top: 66px;
         align-items: flex-start;
     }
     .about__pets {
-        margin-left: 0px !important;
-        max-width: 48% !important;
+        margin-left: 0px;
+        max-width: 48%;
         max-height: 408px;
         margin-top: 80px;
         margin-bottom: 20px;
@@ -1035,16 +1035,16 @@ max-height: 310px;
     } */
 
     .about__text {
-        max-width: 82% !important;
-        display: flex !important;
+        max-width: 82%;
+        display: flex;
         margin-left: -11px;
         margin-top: 65.5px;
         row-gap: 24px;
         align-items: flex-start;
     }
     .about__pets {
-        margin-left: 0px !important;
-        max-width: 48% !important;
+        margin-left: 0px;
+        max-width: 48%;
         max-height: 408px;
         margin-top: 80px;
         margin-bottom: 20px;
@@ -1065,11 +1065,6 @@ max-height: 310px;
         column-gap: 40px;
         overflow-x: hidden;
         padding: 59.5px 0px;
-        /* margin: 59px auto; */
-        /* display: flex;
-        flex-direction: row;
-        column-gap: 40px;
-        margin: 0 auto; */
     }
 
     .pets__btn {
