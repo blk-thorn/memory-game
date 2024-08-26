@@ -257,13 +257,6 @@ align-self: flex-end;
 }
 
 
-/* @media (max-width:320px) {
-    .start-puppy {
-max-width: 50%;
-max-height: 50%;
-    }  
-} */
-
 .about {
 /* About */
 /* position: relative; */
@@ -274,10 +267,8 @@ background: rgb(255, 255, 255);
 }
 
 .about__content {
-    /* padding-top: 14px; */
     max-width: 1280px;
     margin: 0 auto;
-    /* max-height: 100%; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -877,7 +868,6 @@ display: flex;
 
 .footer-puppy {
 display: flex;
-/* position: relative; */
 max-width: 300px;
 max-height: 310px;
 }

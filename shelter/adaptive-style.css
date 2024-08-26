@@ -96,9 +96,8 @@
     .about__text {
         max-width: 100%;
         display: flex;
-        margin-left: -11px;
         margin-top: 66px;
-        align-items: flex-start;
+        align-content: center;
     }
     .about__pets {
         margin-left: 0px;
@@ -119,12 +118,11 @@
     }
      
     .about__content { 
-        max-width: 82%;
-        margin-bottom: 80px ;
+        max-width: 670px;
+        margin-bottom: 80px;
         display: flex;
         flex-direction: column-reverse;
-        text-align: left;
-        align-items: center;
+        text-align: start;
     }
 
     /* .about__title {
@@ -134,18 +132,18 @@
     .about__text {
         max-width: 82%;
         display: flex;
-        margin-left: -11px;
         margin-top: 65.5px;
         row-gap: 24px;
+        padding-left: 26px;
         align-items: flex-start;
     }
     .about__pets {
-        margin-left: 0px;
+        align-self: center;
         max-width: 48%;
         max-height: 408px;
         margin-top: 80px;
         margin-bottom: 20px;
-        align-items: flex-end;
+        /* align-items: flex-end; */
     }
 
     .about__subtitle2 {
@@ -251,7 +249,7 @@
     .footer-puppy {
         height: 100%;
         width: 100%;
-        padding-top: 35px;
+        padding-top: 65px;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -362,11 +360,12 @@
    }
 
    .about__text {
-       padding: 42px 1px 0px 1px;
-       padding-right: 1px;
-       display: flex;
-       row-gap: 22px;
-       max-width: 100%;
+    padding: 0;
+    margin-top: 42px;
+    display: flex;
+    row-gap: 22px;
+    max-width: 100%;
+    align-content: center;
    }
   
    .about__title  {
@@ -542,8 +541,8 @@
 
      .footer__nav {
         padding: 2px;
-        max-width: 91%;
-        /* row-gap: 11px; */
+        max-width: 98%;
+        row-gap: 24px;
      }
 
      .contacts {
@@ -570,8 +569,10 @@
      }
 
      .locations {
-        padding-top: 10px;
+        /* padding-top: 10px; */
+        display: flex;
         row-gap: 13px;
+        justify-content: center;
      }
 
      .locations__list {
@@ -601,8 +602,8 @@
      }
 
      .footer-puppy {
-        max-width: 90.7%;
-        padding-top: 10px;
+            max-width: 84%;
+            padding-top: 16px;
      } 
 
      }
