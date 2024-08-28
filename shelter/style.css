@@ -10,6 +10,7 @@ html {
 scroll-behavior: smooth;
 }
 
+
 ul {
 list-style: none;
 }
@@ -253,7 +254,7 @@ cursor: pointer;
 max-width: 100%;
 min-width: 50%;
 /* height: auto; */
-align-self: flex-end; 
+align-self: flex-end;
 }
 
 
