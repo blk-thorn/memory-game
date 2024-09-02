@@ -86,33 +86,31 @@
             </section>
             <section class="pets" id="pets">
                 <h2 class="pets__title">Our friends who <br>are looking for a house</h2>
-                <ul class="pets__slider">
-                    <li>
-                        <button class="slider__btn slider__btn--left">
-                            <img src="./img/pets/arrow-left.png" alt="left arrow">
-                        </button>
-                    </li>
-                    <li class="slider__card">
-                        <img src="./img/pets-katrine.png" alt="katrine">
-                        <h3 class="slider__card-title">Katrine</h3>
-                        <button class="card__btn">Learn more</button>
-                    </li>
-                    <li class="slider__card">
-                        <img src="./img/pets-jennifer.png" alt="jennifer">
-                        <h3 class="slider__card-title">Jennifer</h3>
-                        <button class="card__btn">Learn more</button>
-                    </li>
-                    <li class="slider__card">
-                        <img src="./img/pets-woody.png" alt="woody">
-                        <h3 class="slider__card-title">Woody</h3>
-                        <button class="card__btn">Learn more</button>
-                    </li>
-                    <li>
-                        <button class="slider__btn slider__btn--right">
-                            <img src="./img/pets/arrow-right.png" alt="right arrow">
-                        </button>
-                    </li>
-                </ul>
+                <div class="slider__container">
+                    <button class="slider__btn slider__btn--left">
+                        <img src="./img/pets/arrow-left.png" alt="left arrow">
+                    </button>
+                    <div class="slider__wrapper">
+                        <div class="pets__slider" id="slider">
+                            <ul class="left__cards">
+
+                            </ul>
+                            <ul class="active__cards">
+                                <!-- <li class="cards__item">
+                                    <img src="./img/pets/pets-woody.png" alt="woody" class="cards__img">
+                                    <h3 class="cards__item-title">Woody</h3>
+                                    <button class="cards__btn">Learn more</button>
+                                </li> -->
+                            </ul>
+                            <ul class="right__cards">
+
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="slider__btn slider__btn--right">
+                        <img src="./img/pets/arrow-right.png" alt="right arrow">
+                    </button>
+                </div>
                 <button onclick="location.href='./pets.html'" class="pets__btn pets__btn-text">
                     Get to know the rest</button>
             </section>
@@ -328,7 +326,8 @@
             </div>
         </footer>
     </div>
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
+    <script type="module" src="jsonarray.js"></script>
 </body>
 
 </html>

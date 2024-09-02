@@ -154,27 +154,42 @@
 
 @media (min-width:768px) and (max-width:1279px){
 
+
     .pets__slider {
         display: flex;
+        /* right: 0; */
+        margin-left: 0px;
         flex-direction: row;
         column-gap: 40px;
-        overflow-x: hidden;
+        /* overflow: hidden; */
         padding: 59.5px 0px;
+    }
+
+
+    .slider__wrapper {
+        display: flex;
+        max-width: 580px;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
     }
 
     .pets__btn {
         margin: 0 auto;
     }
-    .slider__card:nth-child(4) {
+    /* .slider__card:nth-child(3) {
         display: none;
-        /* position: absolute; */
-   }
+        /* position: absolute; 
+   } */
+   
    .slider__btn--left {
-       margin-right: -28px;;
+    position: absolute;
+    left:30px;
     }
     
     .slider__btn--right {
-       margin-left: -28px;;
+    position: absolute;
+    right: 30px;
     }
 }
 
@@ -501,45 +516,65 @@ color: #CDCDCD;
     }
 
     .pets {
-        overflow-x: hidden;
+        position: relative;
+        /* overflow-x: hidden; */
         padding-bottom: 41px;
       }
 
+      /* .slider__card:nth-child(2),
       .slider__card:nth-child(3),
-      .slider__card:nth-child(4) {
+      .slider__card:nth-child(4),
+      .slider__card:nth-child(5){
        display: none;
-      }
+      } */
 
       .pets__slider {
         display: flex;
-        flex-direction: column-reverse;
+        margin-left: 0;
+        /* right: 0; */
+        /* flex-direction: column-reverse; */
+        max-width: 270px;
         padding: 41px 0px;
-        row-gap: 0px;
+        row-gap: 0px; 
       }
 
-      .slider__btn--right {
-        margin-left: 133px;
-        margin-top: 20px; 
-      }  
+      .slider__wrapper {
+        display: flex;
+        margin: 0 auto;
+        /* width: 65%; */
+        /* max-width: 580px; */
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    
+    
 
       .slider__btn--left {
-        margin-right: 133px;
-        margin-top: -52px;
-      }  
+        position: absolute;
+        left: 68px;
+        top: 76.5%;
+        }
+        
+      .slider__btn--right {
+        position: absolute;
+        right: 68px;
+        top: 76.5%;
+        }
 
-      .slider__card:nth-child(2) {
+      /* .slider__card:nth-child(2) {
         order: 1;
       }
       .slider__card:nth-child(1) {
         order: 2;
-      }
+      } */
 
       /* .slider__card:nth-child(5) {
         order: 3;
       } */
 
       .pets__btn {
-        margin: 1px auto;
+        margin: 73px auto 0px auto;
       }
 
 
