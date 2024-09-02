@@ -129,6 +129,30 @@ body.addEventListener('click', (event) => {
     const prevBtn = document.querySelector(".slider__btn--left");
     const nextBtn = document.querySelector(".slider__btn--right");
 
+    const cardTemplate = () => {
+        shuffle(jsonArr);
+        const card = document.createElement("li");
+        card.classList.add("slider__card");
+
+        const img = document.createElement("img");
+        img.src = jsonArr[key].img;
+        img.classList.add = ("cards__img");
+
+        const name = document.createElement("h3");
+        name.classList.add("cards__item-title");
+        name.textContent = jsonArr[key].name;
+
+        const button = document.createElement("button");
+        button.classList.add("card__btn");
+        button.innerText = ("Learn more");
+
+        card.appendChild(img);
+        card.appendChild(name);
+        card.appendChild(button);
+        return card;
+    };
+
+    cardTemplate ();
 
 
 
