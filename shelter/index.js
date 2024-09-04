@@ -66,85 +66,32 @@ body.addEventListener('click', (event) => {
  let activeCards = document.querySelector(".active__cards");
  
  function shuffle(jsonArr) {
-    let currentIndex = jsonArr.length;
-  
-    while (currentIndex != 0) {
-  
-      let randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-  
-      [jsonArr[currentIndex], jsonArr[randomIndex]] = [
-        jsonArr[randomIndex], jsonArr[currentIndex]];
+    for (let i = jsonArr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [jsonArr[i], jsonArr[j]] = [jsonArr[j], jsonArr[i]];
     }
-  };
+    };
   shuffle(jsonArr);
 
-
-    let key;
-
-
-    for(key = 0; key < 3; key++) {
-        leftCards.innerHTML += `
-        <li class="slider__card">
-        <img src="${(jsonArr[key].img)}">
-        <h3 class="slider__card-title">${(jsonArr[key].name)}</h3>
-        <button class="card__btn">Learn more</button>
-    </li>
-        `
-    };
-
-    for(key = 4; key < 7; key++) {
-        activeCards.innerHTML += `
-        <li class="slider__card">
-        <img src="${(jsonArr[key].img)}">
-        <h3 class="slider__card-title">${(jsonArr[key].name)}</h3>
-        <button class="card__btn">Learn more</button>
-    </li>
-        `
-    };
-
-    for(key = 0; key < 3; key++) {
-        rightCards.innerHTML += `
-        <li class="slider__card">
-        <img src="${(jsonArr[key].img)}">
-        <h3 class="slider__card-title">${(jsonArr[key].name)}</h3>
-        <button class="card__btn">Learn more</button>
-    </li>
-        `
-    };
-
-    slider.querySelectorAll(".slider__card") .forEach(card => {
-		card.addEventListener('click', () => {
-            console.log("Клик по карте");
-		})
-	});
-
-
-    // const cardsToShow = 3;
-    // const cardsToScroll = 3;
-    // let position = 0;
-
-    const sliderWrapper = document.querySelector(".slider__wrapper")
-    const cards = document.querySelectorAll(".slider__card");
-    const prevBtn = document.querySelector(".slider__btn--left");
-    const nextBtn = document.querySelector(".slider__btn--right");
-
-    const cardTemplate = () => {
-        shuffle(jsonArr);
+  function cardTemplate(jsonArr) {
+    // shuffle(jsonArr);
+    for (let i = 0; i < jsonArr.length; i++) {
         const card = document.createElement("li");
         card.classList.add("slider__card");
 
         const img = document.createElement("img");
-        img.src = jsonArr[key].img;
+        img.src = jsonArr[i].img;
         img.classList.add = ("cards__img");
 
         const name = document.createElement("h3");
-        name.classList.add("cards__item-title");
-        name.textContent = jsonArr[key].name;
+        name.classList.add("slider__card-title");
+        name.textContent = jsonArr[i].name;
 
         const button = document.createElement("button");
         button.classList.add("card__btn");
         button.innerText = ("Learn more");
+
+
 
         card.appendChild(img);
         card.appendChild(name);
@@ -152,22 +99,35 @@ body.addEventListener('click', (event) => {
         return card;
     };
 
-    cardTemplate ();
+    
+}
+
+for (let i = 0; i < 3; i++) {
+    const card = cardTemplate(jsonArr);
+    activeCards.appendChild(card );
+}
+for (let i = 0; i < 3; i++) {
+    const card = cardTemplate(jsonArr);
+    leftCards.appendChild(card);
+}
+for (let i = 0; i < 3; i++) {
+    const card = cardTemplate(jsonArr);
+    rightCards.appendChild(card);
+}
+
+let i = 1;
+for(let li of slider.querySelectorAll(".slider__card")) {
+  li.style.position = 'relative';
+  li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
+  i++;
+};
 
 
 
-
-    let i = 1;
-    for(let li of slider.querySelectorAll(".slider__card")) {
-      li.style.position = 'relative';
-      li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
-      i++;
-    };
-
-
-
-
-
+    const sliderWrapper = document.querySelector(".slider__wrapper")
+    const cards = document.querySelectorAll(".slider__card");
+    const prevBtn = document.querySelector(".slider__btn--left");
+    const nextBtn = document.querySelector(".slider__btn--right");
 
 
     const moveLeft = () => {
@@ -187,46 +147,31 @@ body.addEventListener('click', (event) => {
 
     slider.addEventListener("animationend", (animationEvent) => {
 
-        let newCards;
+        let changedCards;
 
         if (animationEvent.animationName === "move-left") {
             slider.classList.remove("transition-left");
-            newCards = leftCards;
-            activeCards.innerHTML = newCards.innerHTML;
+            changedCards = leftCards;
+            activeCards.innerHTML = changedCards.innerHTML;
 
-            const card1 = cardTemplate();
-            card1.key = Math.floor(Math.random () * 8);
+            changedCards.innerHTML = "";
 
-            const card2 = cardTemplate();
-            card2.key = Math.floor(Math.random () * 8);
-
-            const card3 = cardTemplate();
-            card3.key = Math.floor(Math.random () * 8);
-
-            newCards.innerHTML = "",
-            newCards.appendChild(card1);
-            newCards.appendChild(card2);
-            newCards.appendChild(card3);
-;
+            for (let i = 0; i < 3; i++) {
+                // shuffle(jsonArr);
+                const card = cardTemplate(jsonArr);
+                changedCards.appendChild(card);
+            }
         } else {
             slider.classList.remove("transition-right");
-            newCards = rightCards;
-            activeCards.innerHTML = newCards.innerHTML;
+            changedCards = rightCards;
+            activeCards.innerHTML = changedCards.innerHTML;
 
-            const card1 = cardTemplate();
-            card1.key = Math.floor(Math.random () * 8);
+            changedCards.innerHTML = "";
 
-            const card2 = cardTemplate();
-            card2.key = Math.floor(Math.random () * 8);
-
-            const card3 = cardTemplate();
-            card3.key = Math.floor(Math.random () * 8);
-
-            newCards.innerHTML = "",
-            newCards.appendChild(card1);
-            newCards.appendChild(card2);
-            newCards.appendChild(card3);
-;
+            for (let i = 0; i < 3; i++) {
+                const card = cardTemplate(jsonArr);
+                changedCards.appendChild(card);
+            };
         };
         prevBtn.addEventListener('click', moveLeft);
         nextBtn.addEventListener('click', moveRight);
