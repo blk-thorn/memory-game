@@ -20,6 +20,11 @@ text-decoration: none;
 }
 
 
+img, video, canvas {
+        overflow: hidden;
+    }
+
+
 .container {
 margin: 0 auto;
 max-width: 100%;
@@ -407,7 +412,7 @@ padding: 59px 0px;
 
 .transition-right {
     animation-name: move-right;
-    animation-duration: 3s
+    animation-duration: 2s
 }
 
 @keyframes move-left {
@@ -417,7 +422,7 @@ padding: 59px 0px;
 
 .transition-left {
     animation-name: move-left;
-    animation-duration: 3s
+    animation-duration: 2s
 }
 
 /* @keyframes move-right {

@@ -54,12 +54,11 @@ import { jsonArr } from "./jsonarray.js";
 const petsArr = mixArr(jsonArr);
 
 function mixArr () {
-    const array1 = jsonArr;
+    const array1 = jsonArr.map(i=>[Math.random(), i]).sort().map(i=>i[1])
     const array2 = jsonArr.map(i=>[Math.random(), i]).sort().map(i=>i[1])
     const array3 = jsonArr.map(i=>[Math.random(), i]).sort().map(i=>i[1])
     const array4 = jsonArr.map(i=>[Math.random(), i]).sort().map(i=>i[1])
     const array5 = jsonArr.map(i=>[Math.random(), i]).sort().map(i=>i[1])
-    const array6 = jsonArr.map(i=>[Math.random(), i]).sort().map(i=>i[1])
 
     const petsArr = jsonArr.concat(array1, array2, array3, array4, array5);
 
@@ -70,63 +69,119 @@ console.log(petsArr);
 
 const postData = petsArr;
 let currentPage = 1;
-let rows = 8;
+const petCards = 8; 
 
+function displayList(arrData, petsPerPage, page) {
+    const postsEl = document.querySelector(".cards__container");
+    postsEl.innerHTML = "";
+    page--; // Уменьшаем, чтобы отсчет начинался с индекса [0]
+    const start = page * petsPerPage; // Начальный индекс
+    const end = start + petsPerPage; // Конечный индекс
+    const paginatedData = arrData.slice(start, end);
 
-function displayList (arrData, rowPerPage, page) {
-	const postsEl = document.querySelector(".cards__container");
-
-	const start = rowPerPage * page;
-	const end = start + rowPerPage;
-	const paginatedData = arrData.slice(start, end);
-
-	paginatedData.forEach ((el) => {
-		const card = document.createElement("li");
+    paginatedData.forEach((pet) => {
+        const card = document.createElement("li");
         card.classList.add("cards__item");
 
         const img = document.createElement("img");
-        img.src = `${el.img}`;
-        img.classList.add = ("cards__img");
+        img.src = `${pet.img}`;
+        img.classList.add("cards__img");
 
         const name = document.createElement("h3");
         name.classList.add("cards__item-title");
-        name.textContent = `${el.name}`;
+        name.textContent = `${pet.name}`;
 
         const button = document.createElement("button");
         button.classList.add("cards__btn");
-        button.innerText = ("Learn more");
+        button.innerText = "Learn more";
 
         card.appendChild(img);
         card.appendChild(name);
         card.appendChild(button);
-		postsEl.appendChild(card)
-	})
-};
+        postsEl.appendChild(card);
+    });
+}
 
+function displayPagination(arrData, petsPerPage) {
+    const liEl = document.querySelector(".pagenav__active");
+    liEl.innerText = currentPage;
 
+    const totalPages = Math.ceil(arrData.length / petsPerPage);
 
-function displayPagination (arrData, rowPerPage) {
-	const paginationEl = document.querySelector(".pagenav");
-	// const paginationBtns = document.getElementById("left__buttons");
-	const pagesCount = Math.ceil (arrData.length / rowPerPage);
+    // Скрываем или показываем кнопки в зависимости от текущей страницы
+    btnPrev.disabled = (currentPage === 1);
+    btnNext.disabled = (currentPage === totalPages);
+    
 
-    for (let i = 0; i < pagesCount; i++) {
-		const liEl = displayPaginationBtn(i + 1);
-		liEl.innerText = currentPage;
-	    paginationEl.appendChild(liEl);
+    if (btnPrev.disabled) {
+        btnPrev.classList.add("disabled");
+        btnFirst.classList.add("disabled");
+    } else {
+        btnPrev.classList.remove("disabled");
+        btnFirst.classList.remove("disabled");
+    }
 
-		liEl.addEventListener("click", () => {
-			console.log("Кнопка с номером страницы")
-			liEl.innerText = currentPage;
-			currentPage++;
-		   });
-	}
-};
-function displayPaginationBtn(page) {
-	const liEl = document.querySelector(".pagenav__active");
-	liEl.innerText = page;
-	return liEl;
-};
+    if (btnNext.disabled) {
+        btnNext.classList.add("disabled");
+        btnLast.classList.add("disabled");
+    } else {
+        btnNext.classList.remove("disabled");
+        btnLast.classList.remove("disabled");
+    }
+}
 
-displayList(postData, rows, currentPage);
-displayPagination(postData, rows);
+function handleNextBtn() {
+    const totalPages = Math.ceil(postData.length / petCards);
+    if (currentPage < totalPages) {
+        currentPage++; // Переход на следующую страницу
+    }
+
+    // Обновляем список питомцев и элемент пагинации
+    displayList(postData, petCards, currentPage);
+    displayPagination(postData, petCards);
+}
+
+function handlePrevBtn() {
+    if (currentPage > 1) {
+        currentPage--; // Переход на предыдущую страницу
+    }
+
+    // Обновляем список питомцев и элемент пагинации
+    displayList(postData, petCards, currentPage);
+    displayPagination(postData, petCards);
+}
+function handleLastBtn() {
+    const totalPages = Math.ceil(postData.length / petCards);
+    if (currentPage < totalPages) {
+        currentPage = totalPages; // Переход на последнюю страницу
+    }
+
+    // Обновляем список питомцев и элемент пагинации
+    displayList(postData, petCards, currentPage);
+    displayPagination(postData, petCards);
+}
+
+function handleFirstBtn() {
+    if (currentPage > 1) {
+        currentPage = 1; // Переход на первую страницу
+    }
+
+    // Обновляем список питомцев и элемент пагинации
+    displayList(postData, petCards, currentPage);
+    displayPagination(postData, petCards);
+}
+
+// Обработчики для кнопок
+const btnNext = document.querySelector(".pagenav__button--next");
+const btnPrev = document.querySelector(".pagenav__button--prev");
+const btnFirst = document.querySelector(".pagenav__button--first");
+const btnLast = document.querySelector(".pagenav__button--last");
+
+btnNext.addEventListener("click", handleNextBtn);
+btnPrev.addEventListener("click", handlePrevBtn);
+btnLast.addEventListener("click", handleLastBtn);
+btnFirst.addEventListener("click", handleFirstBtn);
+
+// Начальная загрузка данных
+displayList(postData, petCards, currentPage);
+displayPagination(postData, petCards);
