@@ -65,57 +65,60 @@ body.addEventListener('click', (event) => {
  let rightCards = document.querySelector(".right__cards");
  let activeCards = document.querySelector(".active__cards");
  
+ // Функция для перемешивания массива
  function shuffle(array) {
-    return array.sort(() => Math.random() - 0.5);
-  }
-    
+     for (let i = array.length - 1; i > 0; i--) {
+         const j = Math.floor(Math.random() * (i + 1));
+         [array[i], array[j]] = [array[j], array[i]];
+     }
+     return array;
+ }
+ 
+ // Создание карточки
+ function cardTemplate(array, i) {
+     const card = document.createElement("li");
+     card.classList.add("slider__card");
+ 
+     const img = document.createElement("img");
+     img.src = array[i].img;
+     img.classList.add("cards__img");
+ 
+     const name = document.createElement("h3");
+     name.classList.add("slider__card-title");
+     name.textContent = array[i].name;
+ 
+     const button = document.createElement("button");
+     button.classList.add("card__btn");
+     button.innerText = "Learn more";
+ 
+     card.appendChild(img);
+     card.appendChild(name);
+     card.appendChild(button);
+ 
+     return card;
+ }
+ 
+ // Перемешиваем массив
+ const shuffledArr = shuffle([...jsonArr]); // Клонируем и перемешиваем массив
+ 
+ // Добавление уникальных карточек
+ function addUniqueCards(container, count) {
+     const usedIndices = new Set(); // Множество для отслеживания использованных индексов
+ 
+     while (usedIndices.size < count) {
+         const index = Math.floor(Math.random() * shuffledArr.length);
+         if (!usedIndices.has(index)) { // Проверяем, использовался ли индекс
+             usedIndices.add(index); // Добавляем индекс в множество
+             const newCard = cardTemplate(shuffledArr, index); // Создаем карточку
+             container.appendChild(newCard); // Добавляем карточку в контейнер
+         }
+     }
+ }
+ 
 
-
-function cardTemplate (array, i) {
-    shuffle(jsonArr);
-    const card = document.createElement("li");
-    card.classList.add("slider__card");
-
-    const img = document.createElement("img");
-    img.src = array[i].img;
-    img.classList.add = ("cards__img");
-
-    const name = document.createElement("h3");
-    name.classList.add("slider__card-title");
-    name.textContent = array[i].name;
-
-    const button = document.createElement("button");
-    button.classList.add("card__btn");
-    button.innerText = ("Learn more");
-
-    card.appendChild(img);
-    card.appendChild(name);
-    card.appendChild(button);
-
-   return card
-
-};
-
-for (let i = 4; i < 7; i++) {
-    const newCard = cardTemplate(jsonArr, i);
-    activeCards.appendChild(newCard);
-}
-
-for (let i = 0; i < 3; i++) {
-    const newCard = cardTemplate(jsonArr, i);
-    leftCards.appendChild(newCard);
-}
-for (let i = 0; i < 3; i++) {
-    const newCard = cardTemplate(jsonArr, i);
-    rightCards.appendChild(newCard);
-}
-
-// let i = 1;
-// for(let li of slider.querySelectorAll(".slider__card")) {
-//   li.style.position = 'relative';
-//   li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
-//   i++;
-// };
+ addUniqueCards(activeCards, 3);
+ addUniqueCards(leftCards, 3);
+ addUniqueCards(rightCards, 3);
 
 
 
@@ -151,11 +154,9 @@ for (let i = 0; i < 3; i++) {
 
             changedCards.innerHTML = "";
 
-            for (let i = 0; i < 3; i++) {
-                // shuffle(jsonArr);
-                const card = cardTemplate(jsonArr, i);
-                changedCards.appendChild(card);
-            }
+            addUniqueCards(leftCards, 3);
+
+   
         } else {
             slider.classList.remove("transition-right");
             changedCards = rightCards;
@@ -163,11 +164,7 @@ for (let i = 0; i < 3; i++) {
 
             changedCards.innerHTML = "";
 
-            for (let i = 0; i < 3; i++) {
-                // shuffle(jsonArr);
-                const card = cardTemplate(jsonArr, i);
-                changedCards.appendChild(card);
-            };
+            addUniqueCards(rightCards, 3);
         };
         prevBtn.addEventListener('click', moveLeft);
         nextBtn.addEventListener('click', moveRight);
