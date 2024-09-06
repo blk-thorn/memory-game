@@ -74,7 +74,7 @@ const petCards = 8;
 function displayList(arrData, petsPerPage, page) {
     const postsEl = document.querySelector(".cards__container");
     postsEl.innerHTML = "";
-    page--; // Уменьшаем, чтобы отсчет начинался с индекса [0]
+    page--; // Уменьшаем для корректной работы с индексами, чтобы отсчет начинался с индекса [0]
     const start = page * petsPerPage; // Начальный индекс
     const end = start + petsPerPage; // Конечный индекс
     const paginatedData = arrData.slice(start, end);
