@@ -65,62 +65,57 @@ body.addEventListener('click', (event) => {
  let rightCards = document.querySelector(".right__cards");
  let activeCards = document.querySelector(".active__cards");
  
- function shuffle(jsonArr) {
-    for (let i = jsonArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [jsonArr[i], jsonArr[j]] = [jsonArr[j], jsonArr[i]];
-    }
-    };
-  shuffle(jsonArr);
-
-  function cardTemplate(jsonArr) {
-    // shuffle(jsonArr);
-    for (let i = 0; i < jsonArr.length; i++) {
-        const card = document.createElement("li");
-        card.classList.add("slider__card");
-
-        const img = document.createElement("img");
-        img.src = jsonArr[i].img;
-        img.classList.add = ("cards__img");
-
-        const name = document.createElement("h3");
-        name.classList.add("slider__card-title");
-        name.textContent = jsonArr[i].name;
-
-        const button = document.createElement("button");
-        button.classList.add("card__btn");
-        button.innerText = ("Learn more");
-
-
-
-        card.appendChild(img);
-        card.appendChild(name);
-        card.appendChild(button);
-        return card;
-    };
-
+ function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
+  }
     
-}
 
-for (let i = 0; i < 3; i++) {
-    const card = cardTemplate(jsonArr);
-    activeCards.appendChild(card );
-}
-for (let i = 0; i < 3; i++) {
-    const card = cardTemplate(jsonArr);
-    leftCards.appendChild(card);
-}
-for (let i = 0; i < 3; i++) {
-    const card = cardTemplate(jsonArr);
-    rightCards.appendChild(card);
-}
 
-let i = 1;
-for(let li of slider.querySelectorAll(".slider__card")) {
-  li.style.position = 'relative';
-  li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
-  i++;
+function cardTemplate (array, i) {
+    shuffle(jsonArr);
+    const card = document.createElement("li");
+    card.classList.add("slider__card");
+
+    const img = document.createElement("img");
+    img.src = array[i].img;
+    img.classList.add = ("cards__img");
+
+    const name = document.createElement("h3");
+    name.classList.add("slider__card-title");
+    name.textContent = array[i].name;
+
+    const button = document.createElement("button");
+    button.classList.add("card__btn");
+    button.innerText = ("Learn more");
+
+    card.appendChild(img);
+    card.appendChild(name);
+    card.appendChild(button);
+
+   return card
+
 };
+
+for (let i = 4; i < 7; i++) {
+    const newCard = cardTemplate(jsonArr, i);
+    activeCards.appendChild(newCard);
+}
+
+for (let i = 0; i < 3; i++) {
+    const newCard = cardTemplate(jsonArr, i);
+    leftCards.appendChild(newCard);
+}
+for (let i = 0; i < 3; i++) {
+    const newCard = cardTemplate(jsonArr, i);
+    rightCards.appendChild(newCard);
+}
+
+// let i = 1;
+// for(let li of slider.querySelectorAll(".slider__card")) {
+//   li.style.position = 'relative';
+//   li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
+//   i++;
+// };
 
 
 
@@ -158,7 +153,7 @@ for(let li of slider.querySelectorAll(".slider__card")) {
 
             for (let i = 0; i < 3; i++) {
                 // shuffle(jsonArr);
-                const card = cardTemplate(jsonArr);
+                const card = cardTemplate(jsonArr, i);
                 changedCards.appendChild(card);
             }
         } else {
@@ -169,7 +164,8 @@ for(let li of slider.querySelectorAll(".slider__card")) {
             changedCards.innerHTML = "";
 
             for (let i = 0; i < 3; i++) {
-                const card = cardTemplate(jsonArr);
+                // shuffle(jsonArr);
+                const card = cardTemplate(jsonArr, i);
                 changedCards.appendChild(card);
             };
         };

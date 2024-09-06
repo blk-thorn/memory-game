@@ -384,12 +384,12 @@ background-color: #F6F6F6;
 border: 2px solid #F1CDB3;
 transition-duration: 0.5s;
 }
-
-.pagenav__button:disabled {
+.disabled {
  border: 2px solid rgb(205, 205, 205);
  color: rgb(205, 205, 205);
  cursor: not-allowed;
 }
+
 
 /* li.pagenav__disabled {
 cursor: not-allowed;
