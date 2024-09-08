@@ -87,7 +87,7 @@
     }
 
     .modal__text {
-        max-height: 270px;
+        /* max-height: 270px; */
         padding: 0;
     }
 
@@ -142,9 +142,6 @@
         text-align: start;
     }
 
-    /* .about__title {
-        padding-top: 1px;
-    } */
 
     .about__text {
         max-width: 82%;
@@ -183,9 +180,30 @@
     }
 
 
+    
+@keyframes move-right {
+    from {margin-left: 0px;}
+    to {margin-right: 1340px;}
+}
+
+.transition-right {
+    animation-name: move-right;
+    animation-duration: 2s
+}
+
+@keyframes move-left {
+    from {margin-left: 0px;}
+    to {margin-right: -1340px;}
+}
+
+.transition-left {
+    animation-name: move-left;
+    animation-duration: 2s
+}
+
     .slider__wrapper {
         display: flex;
-        max-width: 580px;
+        max-width: 630px;
         justify-content: center;
         align-items: center;
         overflow: hidden;
@@ -433,9 +451,10 @@
     height: 100vh;
     width: 320px;
     row-gap: 40px;
-    padding-top: 250px;
+    /* padding-top: 250px; */
+    padding-top: 180px;
     padding-bottom: 40px;
-    overflow: auto;
+    /* overflow: auto; */
     /* top: -823px; */
     /* right: -320px; */
     top: 0;
@@ -558,57 +577,62 @@ color: #CDCDCD;
         padding-bottom: 41px;
       }
 
-      /* .slider__card:nth-child(2),
-      .slider__card:nth-child(3),
-      .slider__card:nth-child(4),
-      .slider__card:nth-child(5){
-       display: none;
-      } */
-
+ 
       .pets__slider {
         display: flex;
-        margin-left: 0;
-        /* right: 0; */
-        /* flex-direction: column-reverse; */
+        justify-content: center;
+        margin-left: 0px;
         max-width: 270px;
         padding: 41px 0px;
         row-gap: 0px; 
+        
       }
 
       .slider__wrapper {
         display: flex;
         margin: 0 auto;
-        /* width: 65%; */
-        /* max-width: 580px; */
+        max-width: 270px;
         justify-content: center;
         align-items: center;
         overflow: hidden;
     }
     
+    @keyframes move-right {
+        from {margin-left: 0px;}
+        to {margin-right: 720px;}
+    }
+    
+    .transition-right {
+        animation-name: move-right;
+        animation-duration: 2s
+    }
+    
+    @keyframes move-left {
+        from {margin-left: 0px;}
+        to {margin-right: -720px;}
+    }
+    
+    .transition-left {
+        animation-name: move-left;
+        animation-duration: 2s
+    }
+
     
 
       .slider__btn--left {
         position: absolute;
+        /* left: 190px; */
         left: 68px;
         top: 76.5%;
         }
         
       .slider__btn--right {
         position: absolute;
+        /* right: 190px; */
         right: 68px;
         top: 76.5%;
         }
 
-      /* .slider__card:nth-child(2) {
-        order: 1;
-      }
-      .slider__card:nth-child(1) {
-        order: 2;
-      } */
-
-      /* .slider__card:nth-child(5) {
-        order: 3;
-      } */
 
       .pets__btn {
         margin: 73px auto 0px auto;

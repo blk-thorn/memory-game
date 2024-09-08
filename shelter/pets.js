@@ -23,7 +23,7 @@ if (menu && menuBtn) {
 			menuBtn.classList.remove('burger--active');
 			body.classList.remove('noscroll');
             event._isClicked = true;
-            console.log("Клик по ссылке");
+            // console.log("Клик по ссылке");
 		})
 	})
 };
@@ -67,12 +67,23 @@ function mixArr () {
 
 const postData = petsArr;
 let currentPage = 1;
-const petCards = 8; 
+
+function getPetsCards() {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth <= 320) {
+        return 3;
+    } else if (windowWidth <= 768) {
+        return 6;
+    } else {
+        return 8;
+    }
+}
 
 function displayList(arrData, petsPerPage, page) {
     const postsEl = document.querySelector(".cards__container");
     postsEl.innerHTML = "";
-    page--; // Уменьшаем для корректной работы с индексами, чтобы отсчет начинался с индекса [0]
+    page--; // Чтобы отсчет начинался с индекса [0]
     const start = page * petsPerPage; // Начальный индекс
     const end = start + petsPerPage; // Конечный индекс
     const paginatedData = arrData.slice(start, end);
@@ -187,10 +198,11 @@ modalContainer.forEach(card => {
         const target = event.target;
         const modalBtnElement = target.closest("[data-modal-btn]");
 
-        if (modalBtnElement) { // Убедитесь, что клик был на кнопке
+        if (modalBtnElement) {
             const name = modalBtnElement.dataset.modalBtn;
             const modal = document.querySelector(`[data-modal-window='${name}']`);
             modal.style.display = "flex";
+            body.classList.toggle('noscroll');
             document.body.style.overflow = "hidden";
 
             // Закрытие модального окна при нажатии кнопки
@@ -232,7 +244,9 @@ function displayPagination(arrData, petsPerPage) {
     }
 }
 
+
 function handleNextBtn() {
+    const petCards = getPetsCards();
     const totalPages = Math.ceil(postData.length / petCards);
     if (currentPage < totalPages) {
         currentPage++; // Переход на следующую страницу
@@ -244,8 +258,9 @@ function handleNextBtn() {
 }
 
 function handlePrevBtn() {
+    const petCards = getPetsCards();
     if (currentPage > 1) {
-        currentPage--; // Переход на предыдущую страницу
+        currentPage--;
     }
 
     // Обновляем список питомцев и элемент пагинации
@@ -253,6 +268,7 @@ function handlePrevBtn() {
     displayPagination(postData, petCards);
 }
 function handleLastBtn() {
+    const petCards = getPetsCards();
     const totalPages = Math.ceil(postData.length / petCards);
     if (currentPage < totalPages) {
         currentPage = totalPages; // Переход на последнюю страницу
@@ -264,6 +280,7 @@ function handleLastBtn() {
 }
 
 function handleFirstBtn() {
+    const petCards = getPetsCards();
     if (currentPage > 1) {
         currentPage = 1; // Переход на первую страницу
     }
@@ -273,7 +290,6 @@ function handleFirstBtn() {
     displayPagination(postData, petCards);
 }
 
-// Обработчики для кнопок
 const btnNext = document.querySelector(".pagenav__button--next");
 const btnPrev = document.querySelector(".pagenav__button--prev");
 const btnFirst = document.querySelector(".pagenav__button--first");
@@ -284,9 +300,20 @@ btnPrev.addEventListener("click", handlePrevBtn);
 btnLast.addEventListener("click", handleLastBtn);
 btnFirst.addEventListener("click", handleFirstBtn);
 
-// Начальная загрузка данных
-displayList(postData, petCards, currentPage);
-displayPagination(postData, petCards);
+function initializeDisplay() {
+    const petCards = getPetsCards(); // Актуальное количество карточек
+    displayList(postData, petCards, currentPage); // Список питомцев
+    displayPagination(postData, petCards);
+}
+
+// Инициализация при загрузке
+initializeDisplay();
+
+window.addEventListener('resize', () => {
+    const petCards = getPetsCards(); // Новое количество карточек
+    displayList(postData, petCards, currentPage); // Обновляем список
+});
+
 
 
 window.onclick = function (e) {

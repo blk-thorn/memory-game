@@ -174,9 +174,10 @@
   height: 100vh;
   width: 320px;
   row-gap: 40px;
-  padding-top: 250px;
+  /* padding-top: 250px; */
+  padding-top: 180px;
   padding-bottom: 40px;
-  overflow: auto;
+  /* overflow: auto; */
   /* top: -823px; */
   /* right: -320px; */
   top: 0;
