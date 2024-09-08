@@ -65,8 +65,6 @@ function mixArr () {
     return petsArr;
 }
 
-console.log(petsArr);
-
 const postData = petsArr;
 let currentPage = 1;
 const petCards = 8; 
@@ -79,9 +77,10 @@ function displayList(arrData, petsPerPage, page) {
     const end = start + petsPerPage; // Конечный индекс
     const paginatedData = arrData.slice(start, end);
 
-    paginatedData.forEach((pet) => {
+    paginatedData.forEach((pet, index) => {
         const card = document.createElement("li");
         card.classList.add("cards__item");
+        card.setAttribute("data-modal-btn", index);
 
         const img = document.createElement("img");
         img.src = `${pet.img}`;
@@ -95,11 +94,114 @@ function displayList(arrData, petsPerPage, page) {
         button.classList.add("cards__btn");
         button.innerText = "Learn more";
 
+        // ________________________modal_____________________________
+     const modal = document.createElement("div");
+     modal.classList.add("modal");
+     modal.setAttribute("data-modal-window", index);
+
+     const modalWrapper = document.createElement("div");
+     modalWrapper.classList.add("modal__wrapper")
+
+     const modalContent = document.createElement("div");
+     modalContent.classList.add("modal__content");
+
+     const modalInner = document.createElement("div");
+     modalInner.classList.add("modal__inner");
+
+     const modalInnerText = document.createElement("div");
+     modalInnerText.classList.add("modal__text");
+
+     const modalImg = document.createElement("img");
+     modalImg.classList.add("modal__img");
+     modalImg.src = `${pet.img}`;
+
+     const modalName = document.createElement("h3");
+     modalName.classList.add("modal__title");
+     modalName.textContent = `${pet.name}`;
+
+     const modalBreed = document.createElement("h4");
+     modalBreed.classList.add("modal__subtitle");
+     modalBreed.innerHTML = "<strong>" + `${pet.type}` + ":</strong> " + `${pet.breed}`;
+
+     const modalText = document.createElement("p");
+     modalText.classList.add("modal__description");
+     modalText.innerHTML = `${pet.description}`;
+
+     const modalList = document.createElement("ul");
+     modalList.classList.add("modal__list");
+
+     const liEl = document.createElement("li");
+     liEl.classList.add("modal__item");
+     liEl.innerHTML = "<strong>Age:</strong> " + `${pet.age}`;
+
+     const liEl2 = document.createElement("li");
+     liEl2.classList.add("modal__item");
+     liEl2.innerHTML = "<strong>Inoculations:</strong> " + `${pet.inoculations}`;
+
+     const liEl3 = document.createElement("li");
+     liEl3.classList.add("modal__item");
+     liEl3.innerHTML = "<strong>Diseases:</strong> " + `${pet.diseases}`;
+
+     const liEl4 = document.createElement("li");
+     liEl4.classList.add("modal__item");
+     liEl4.innerHTML = "<strong>Parasites:</strong> " + `${pet.parasites}`;
+
+     const modalButton = document.createElement("button");
+     modalButton.classList.add("modal__button");
+     modalButton.textContent = "\u00D7";
+
+
+     card.appendChild(modal);
+     modal.appendChild(modalWrapper);
+     modalWrapper.appendChild(modalContent);
+     
+     modalContent.appendChild(modalInner);
+     modalContent.appendChild(modalInnerText);
+
+     modalWrapper.appendChild(modalButton);
+
+     modalList.appendChild(liEl);
+     modalList.appendChild(liEl2);
+     modalList.appendChild(liEl3);
+     modalList.appendChild(liEl4);
+
+
+     modalInnerText.appendChild(modalName);
+     modalInnerText.appendChild(modalBreed);
+     modalInnerText.appendChild(modalText);
+     modalInnerText.appendChild(modalList);
+
+     modalInner.appendChild(modalImg);
+
         card.appendChild(img);
         card.appendChild(name);
         card.appendChild(button);
         postsEl.appendChild(card);
     });
+
+    
+const modalContainer = document.querySelectorAll(".cards__item");
+
+modalContainer.forEach(card => {
+    card.addEventListener("click", (event) => {
+        const target = event.target;
+        const modalBtnElement = target.closest("[data-modal-btn]");
+
+        if (modalBtnElement) { // Убедитесь, что клик был на кнопке
+            const name = modalBtnElement.dataset.modalBtn;
+            const modal = document.querySelector(`[data-modal-window='${name}']`);
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+
+            // Закрытие модального окна при нажатии кнопки
+            const closeBtn = modal.querySelector(".modal__button");
+            closeBtn.addEventListener("click", () => {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            });
+        }
+    });
+})
 }
 
 function displayPagination(arrData, petsPerPage) {
@@ -185,3 +287,18 @@ btnFirst.addEventListener("click", handleFirstBtn);
 // Начальная загрузка данных
 displayList(postData, petCards, currentPage);
 displayPagination(postData, petCards);
+
+
+window.onclick = function (e) {
+    if (
+        e.target.classList.contains("modal__wrapper")||
+        e.target.classList.contains("modal__button")||
+        e.target.hasAttribute("data-modal-window")) {
+        
+        let modals = document.querySelectorAll("*[data-modal-window]");
+        for (let i = 0; i < modals.length; i++) {
+            modals[i].style.display = "none";
+        }
+        document.body.style.overflow = "auto";
+    }
+};

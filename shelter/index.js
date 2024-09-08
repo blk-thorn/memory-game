@@ -176,8 +176,30 @@ body.addEventListener('click', (event) => {
      card.appendChild(name);
      card.appendChild(button);
      
+     const modalContainer = document.querySelectorAll(".slider__card");
+     // Добавляем обработчик событий на каждый элемент
+     modalContainer.forEach(card => {
+         card.addEventListener("click", (event) => {
+             // Целевой элемент клика
+             const target = event.target;
+     
+             // Ищем ближайший элемент с data-modal-btn
+             const modalBtnElement = target.closest("[data-modal-btn]");
+     
+             // Если такой элемент найден, получаем имя модального окна
+             const name = modalBtnElement.dataset.modalBtn;
+     
+             // Находим модальное окно по имени
+             const modal = document.querySelector(`[data-modal-window='${name}']`);
+ 
+                 modal.style.display = "flex";
+                 document.body.style.overflow = "hidden";
+ 
+         });
+     });
  
      return card;
+
  }
  
  // Перемешиваем массив
@@ -268,27 +290,6 @@ body.addEventListener('click', (event) => {
     
 
     
-        const modalContainer = document.querySelectorAll(".slider__card");
-        // Добавляем обработчик событий на каждый элемент
-        modalContainer.forEach(card => {
-            card.addEventListener("click", (event) => {
-                // Целевой элемент клика
-                const target = event.target;
-        
-                // Ищем ближайший элемент с data-modal-btn
-                const modalBtnElement = target.closest("[data-modal-btn]");
-        
-                // Если такой элемент найден, получаем имя модального окна
-                const name = modalBtnElement.dataset.modalBtn;
-        
-                // Находим модальное окно по имени
-                const modal = document.querySelector(`[data-modal-window='${name}']`);
-    
-                    modal.style.display = "flex";
-                    document.body.style.overflow = "hidden";
-    
-            });
-        });
 
 
 

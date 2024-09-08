@@ -79,9 +79,6 @@ transition-duration: 0.3s;
 /* align-self: flex-start; */
 }
 
-.hidden {
-    display: none;
-}
 
 .logo__title {
 color: rgb(241, 205, 179);
@@ -677,11 +674,12 @@ row-gap: 11px;
     align-items: center;
     justify-content: center;
     text-align: center;
+    font-size: 24px;
     width: 52px;
     height: 52px;
     border: none;  
     border-radius: 50%;
-    color: #F6F6F6;
+    color: #292929;
     background-color: rgba(0, 0, 0, 0);
     border: 2px solid #F1CDB3;
     transition-duration: 0.5s;
