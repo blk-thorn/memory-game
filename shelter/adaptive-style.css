@@ -231,12 +231,12 @@
    
    .slider__btn--left {
     position: absolute;
-    left:30px;
+    left:17px;
     }
     
     .slider__btn--right {
     position: absolute;
-    right: 30px;
+    right: 17px;
     }
 }
 
