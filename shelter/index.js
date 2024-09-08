@@ -268,8 +268,8 @@ body.addEventListener('click', (event) => {
     nextBtn.addEventListener('click', moveRight);
 
 
-    // const usedLeftIndices = new Set(); // Использованные индексы для левой колонки
-    // const usedRightIndices = new Set(); // Использованные индексы для правой колонки
+    const usedLeftIndices = new Set(); // Использованные индексы для левой колонки
+    const usedRightIndices = new Set(); // Использованные индексы для правой колонки
     let currentCardCount;
     
 

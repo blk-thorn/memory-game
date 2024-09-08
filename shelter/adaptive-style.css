@@ -256,6 +256,14 @@
         height: 113px;
         }
 
+        .left__cards,
+        .active__cards,
+        .right__cards {
+            display: flex;
+            gap: 40px;
+        
+        }
+
 }
 @media (min-width:670px) and (max-width:767px) {
     .help__list {
@@ -464,7 +472,7 @@
     opacity: 0;
     transition: all 0.5s ease-in-out;
     transform: translateX(100%);
-    box-shadow: -100vh -50vh 2px 100vh rgba(45, 45, 45, 0.95); 
+    box-shadow: -100vw -50vw 2px 100vw rgba(45, 45, 45, 0.95); 
 }
 
 .menu__list--active {
@@ -585,13 +593,14 @@ color: #CDCDCD;
         max-width: 270px;
         padding: 41px 0px;
         row-gap: 0px; 
+        gap: 20px;
         
       }
 
       .slider__wrapper {
         display: flex;
         margin: 0 auto;
-        max-width: 270px;
+        /* max-width: 270px; */
         justify-content: center;
         align-items: center;
         overflow: hidden;
@@ -599,7 +608,7 @@ color: #CDCDCD;
     
     @keyframes move-right {
         from {margin-left: 0px;}
-        to {margin-right: 720px;}
+        to {margin-right: 580px;}
     }
     
     .transition-right {
@@ -609,14 +618,21 @@ color: #CDCDCD;
     
     @keyframes move-left {
         from {margin-left: 0px;}
-        to {margin-right: -720px;}
+        to {margin-right: -580px;}
     }
     
     .transition-left {
         animation-name: move-left;
         animation-duration: 2s
     }
-
+    /* .left__cards,
+    .active__cards,
+    .right__cards {
+        display: flex;
+        gap: 10px;
+        z-index: 3;
+    
+    } */
     
 
       .slider__btn--left {
