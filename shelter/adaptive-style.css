@@ -75,7 +75,24 @@
  /* align-items: center; */
     } 
  }
+@media (min-width: 320px) and (max-width:810px) {
 
+    .modal__img {
+        width: 80%;
+    }
+
+    .modal__content {
+        display: flex;
+        /* flex-direction: column; */
+    }
+
+    .modal__text {
+        max-height: 270px;
+        padding: 0;
+    }
+
+    
+}
 
 @media (min-width: 769px) and (max-width: 1279px) {
     .about {
@@ -172,6 +189,18 @@
         justify-content: center;
         align-items: center;
         overflow: hidden;
+    }
+
+
+    .modal {
+       box-sizing: unset;
+    }
+
+
+    .modal__img{
+        max-width: 100%;
+        max-height: 100%;
+        box-sizing: unset;
     }
 
     .pets__btn {
@@ -491,6 +520,13 @@ color: #CDCDCD;
        /* padding-left: 0px; */
     }
 
+    .modal__img {
+        display: none;
+    }
+
+    .modal__text {
+        padding: 0em 2em;
+    }
 
     .pets__title,
     .help__title {
