@@ -174,7 +174,7 @@
         /* right: 0; */
         margin-left: 0px;
         flex-direction: row;
-        column-gap: 40px;
+        /* column-gap: 40px; */
         /* overflow: hidden; */
         padding: 59.5px 0px;
     }
@@ -183,7 +183,7 @@
     
 @keyframes move-right {
     from {margin-left: 0px;}
-    to {margin-right: 1340px;}
+    to {margin-right: 1240px;}
 }
 
 .transition-right {
@@ -193,7 +193,7 @@
 
 @keyframes move-left {
     from {margin-left: 0px;}
-    to {margin-right: -1340px;}
+    to {margin-right: -1240px;}
 }
 
 .transition-left {
