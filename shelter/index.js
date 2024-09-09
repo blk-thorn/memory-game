@@ -1,14 +1,3 @@
-// document.querySelector(".burger").addEventListener("click", function(){
-//     this.classList.toggle("burger--active")
-//     document.querySelector(".menu__list").classList.toggle("menu__list--active")
-//     document.querySelector("body").classList.toggle("noscroll")
-// });
-
-
-// document.querySelectorAll('.menu__item').addEventListener('click', function() {
-// this.classList.remove(("menu__list--active"))
-// document.querySelector(".burger").classList.remove("burger--active")
-// });
 
 const menu = document.querySelector('.menu__list');
 const menuBtn = document.querySelector('.burger');
@@ -268,12 +257,13 @@ body.addEventListener('click', (event) => {
     nextBtn.addEventListener('click', moveRight);
 
 
-    const usedLeftIndices = new Set(); // Использованные индексы для левой колонки
-    const usedRightIndices = new Set(); // Использованные индексы для правой колонки
+    // const usedLeftIndices = new Set(); // Использованные индексы для левой колонки
+    // const usedRightIndices = new Set(); // Использованные индексы для правой колонки
     let currentCardCount;
     
 
     function updateCardCount() {  
+         const screenWidth = window.innerWidth;
         if (screenWidth < 768 && screenWidth >= 320) {
             currentCardCount = 1;
         } else if (screenWidth >= 768 && screenWidth <= 1279) {
@@ -318,7 +308,7 @@ body.addEventListener('click', (event) => {
     }
     
     function handleMediaQueryChange() {
-        console.log('Ширина:', window.innerWidth);
+        // console.log('Ширина:', window.innerWidth);
         
         if (mediaQueryMobile.matches) {
             updateCardDisplay(); 
