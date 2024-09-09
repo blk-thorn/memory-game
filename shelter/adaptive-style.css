@@ -609,7 +609,7 @@ color: #CDCDCD;
     
     @keyframes move-right {
         from {margin-left: 0px;}
-        to {margin-right: 720px;}
+        to {margin-right: 580px;}
     }
     
     .transition-right {
@@ -619,7 +619,7 @@ color: #CDCDCD;
     
     @keyframes move-left {
         from {margin-left: 0px;}
-        to {margin-right: -720px;}
+        to {margin-right: -580px;}
     }
     
     .transition-left {
