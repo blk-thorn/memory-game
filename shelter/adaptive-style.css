@@ -607,6 +607,11 @@ color: #CDCDCD;
         overflow: hidden;
     }
     
+    .left__cards, .active__cards, .right__cards {
+        display: flex;
+        gap: 20px;
+    } 
+
     @keyframes move-right {
         from {margin-left: 0px;}
         to {margin-right: 580px;}
