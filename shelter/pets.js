@@ -311,7 +311,11 @@ initializeDisplay();
 
 window.addEventListener('resize', () => {
     const petCards = getPetsCards(); // Новое количество карточек
-    displayList(postData, petCards, currentPage); // Обновляем список
+    const totalPages = Math.ceil(postData.length / petCards); // Пересчитываем количество страниц
+
+    // Обновляем список питомцев и пагинацию
+    displayList(postData, petCards, currentPage);
+    displayPagination(postData, petCards);
 });
 
 
