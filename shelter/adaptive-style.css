@@ -210,17 +210,71 @@
         overflow: hidden;
     }
 
-
     .modal {
-       box-sizing: unset;
-    }
-
-
-    .modal__img{
-        max-width: 100%;
-        max-height: 100%;
         box-sizing: unset;
-    }
+      }
+      
+      .modal__wrapper {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        width: 715px;
+        height: auto;
+      }
+      
+      .modal__content {
+        max-width: 88%;
+        height: 350px;
+      }
+      
+      
+      .modal__img{
+         width: 350px;
+         height: 350px;
+         box-sizing: unset;
+      }
+      
+      .modal__text {
+        padding: 4px 0px 40px 10px;
+        display: flex;
+        justify-content: none;
+      
+        /* row-gap: 10px; */
+       
+      }
+      
+      .modal__description {
+        margin-top: 10px;
+        font-family: Georgia;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 14px;
+      letter-spacing: 0.067em;
+      text-align: left;
+      padding-bottom: 20px;
+      }
+      
+      .modal__title {
+        padding-top: 5px;
+        font-family: Georgia;
+        font-size: 35px;
+        font-weight: 400;
+        line-height: 45.5px;
+        letter-spacing: 0.06em;
+        text-align: left; 
+      }
+      
+      .modal__subtitle {
+        letter-spacing: 0.065em;
+        text-align: left;
+        padding-bottom: 10px;
+      }
+      
+      .modal__list {
+        display: flex;
+        row-gap: 5px;
+        padding-bottom: 10px;
+      }
 
     .pets__btn {
         margin: 0 auto;
@@ -452,6 +506,63 @@
     z-index: 3;
     /* margin-right: 30px; */
 }
+
+
+
+.modal__wrapper {
+    max-width: 300px;
+  }
+  
+  .modal__content {
+    padding: 10px 10px 10px 10px;
+    max-width: 240px;
+    max-height: 340px;
+  }
+  .modal__img {
+    display: none;
+  }
+  
+  .modal__text {
+    display: flex;
+    padding: 0;
+    box-sizing: unset;
+  }
+  
+  .modal__list {
+    row-gap: 5px;
+  }
+  
+  .modal__item {
+    font-family: Georgia;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 16.5px;
+  letter-spacing: 0.06em;
+  text-align: left;
+  }
+  
+  .modal__description {
+  display: flex;
+  font-family: Georgia;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0.06em;
+  text-align: justify;
+  padding-bottom: 23px;
+  }
+  
+  .modal__title {
+    padding-top: 0px;
+    text-align: center;
+    padding-bottom: 9px;
+  }
+  
+  .modal__subtitle {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
 .menu__list {
     position: fixed;
     display: flex;
@@ -460,8 +571,8 @@
     height: 100vh;
     width: 320px;
     row-gap: 40px;
-    /* padding-top: 250px; */
-    padding-top: 180px;
+    padding-top: 250px;
+    /* padding-top: 180px; */
     padding-bottom: 40px;
     /* overflow: auto; */
     /* top: -823px; */
@@ -548,14 +659,6 @@ color: #CDCDCD;
        /* padding-left: 0px; */
     }
 
-    .modal__img {
-        display: none;
-    }
-
-    .modal__text {
-        padding: 0em 2em;
-        box-sizing: unset;
-    }
 
     .pets__title,
     .help__title {
