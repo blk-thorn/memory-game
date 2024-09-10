@@ -282,7 +282,7 @@ color: #CDCDCD;
 .modal__content {
   padding: 10px 10px 10px 10px;
   max-width: 240px;
-  max-height: 340px;
+  max-height: 440px;
 }
 .modal__img {
   display: none;
