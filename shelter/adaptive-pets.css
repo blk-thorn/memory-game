@@ -332,13 +332,13 @@ padding-bottom: 23px;
 
 
 
- .cards__item:nth-child(4),
+ /* .cards__item:nth-child(4),
  .cards__item:nth-child(5),
  .cards__item:nth-child(6),
  .cards__item:nth-child(7),
  .cards__item:nth-child(8) {
   display: none;
-}
+} */
 .pets__title {
   padding-top: 42px;
   font-weight: 400;
