@@ -33,7 +33,7 @@ if (menu && menuBtn) {
 body.addEventListener('click', (event) => {
     if( 
      event._isClicked === true ||
-     event.target.classList.contains('menu__list') == true ||
+    //  event.target.classList.contains('menu__list') == true ||
      event.target.classList.contains('menu__item-link') == true  ||
      event.target.classList.contains('burger') == true ||
      event.target.classList.contains('burger__line') == true
@@ -108,7 +108,7 @@ body.addEventListener('click', (event) => {
 
      const modalBreed = document.createElement("h4");
      modalBreed.classList.add("modal__subtitle");
-     modalBreed.innerHTML = "<strong>" + array[i].type + ":</strong> " + array[i].breed;
+     modalBreed.innerHTML = "<strong>" + array[i].type + " - </strong> " + array[i].breed;
 
      const modalText = document.createElement("p");
      modalText.classList.add("modal__description");
