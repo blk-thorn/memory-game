@@ -252,6 +252,10 @@
     color: #cdcdcd;
     border-bottom: 3px solid rgb(241, 205, 179);
   }
+  .menu__item--border:not([disabled]):hover {
+    color: #cdcdcd;
+  }
+
   .menu__item,
   .menu__item-link {
     font-family: Arial;
