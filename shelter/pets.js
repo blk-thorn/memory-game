@@ -132,7 +132,7 @@ function displayList(arrData, petsPerPage, page) {
 
      const modalBreed = document.createElement("h4");
      modalBreed.classList.add("modal__subtitle");
-     modalBreed.innerHTML = "<strong>" + `${pet.type}` + ":</strong> " + `${pet.breed}`;
+     modalBreed.innerHTML = "<strong>" + `${pet.type}` + "- </strong> " + `${pet.breed}`;
 
      const modalText = document.createElement("p");
      modalText.classList.add("modal__description");
