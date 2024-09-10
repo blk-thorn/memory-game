@@ -115,6 +115,7 @@ color: #292929;
 
 
 .menu__item--border {
+cursor: not-allowed;
 list-style: none;
 color: #292929;
 font-family: Arial;
@@ -261,11 +262,12 @@ cursor: pointer;
     
     .modal__text{
         display: flex;
-        justify-content: space-evenly;
+        padding: 50px 20px 10px 30px;
+        /* justify-content: space-evenly; */
         flex-direction: column;
         max-width: 400px;
         /* row-gap: 2em; */
-        padding: 2em;
+        /* padding: 2em; */
         background-color: #FAFAFA;
         /* border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;  */
@@ -283,8 +285,9 @@ cursor: pointer;
     }
     
     .modal__title {
+        padding-bottom: 10px;
         font-family: Georgia;
-        font-size: clamp(16px, 2vw, 35px);
+        font-size: 35px;
         font-weight: 400;
         line-height: 45.5px;
         letter-spacing: 0.06em;
@@ -293,30 +296,33 @@ cursor: pointer;
     
     .modal__subtitle {
         font-family: Georgia;
-        font-size: clamp(10px, 2vw, 20px);
+        font-size: 20px;
         font-weight: 400;
         line-height: 23px;
         letter-spacing: 0.06em;
         text-align: left; 
+        padding-bottom: 40px;
     }
     
     .modal__description {
         display: flex;
         text-align: justify;
         font-family: Georgia;
-        font-size: clamp(10px, 2vw, 15px);
+        font-size: 15px;
         font-weight: 400;
-        line-height: 16.5px;
+        line-height: 17px;
         letter-spacing: 0.06em;
         text-align: left;    
+        padding-bottom: 40px;
     }
     
     
     .modal__list {
-    list-style-type: disc;
-    display: flex;
-    flex-direction: column;
-    row-gap: 11px;
+        padding-left: 14px;
+        list-style-type: disc;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
     }
     
     .modal__list li::marker {
