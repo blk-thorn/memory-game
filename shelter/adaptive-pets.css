@@ -225,12 +225,13 @@
     /* right: -320px; */
     top: 0;
     right: 0;
-    background-color: #3b3b3b;
+
+    background-color: #545454;
     align-items: center;
     opacity: 0;
     transition: all 0.5s ease-in-out;
     transform: translateX(100%);
-    box-shadow: -100vh -50vh 2px 100vh rgba(66, 66, 66, 0.9);
+    box-shadow: -100vh -50vh 2px 100vh rgba(85, 85, 85, 0.8);
   }
 
   .menu__list--active {
@@ -249,9 +250,14 @@
     font-weight: 400;
     line-height: 51.2px;
     text-align: center;
-    color: #cdcdcd;
+    color: #292929;
     border-bottom: 3px solid rgb(241, 205, 179);
   }
+  .menu__item--border:not([disabled]):hover {
+    color: #292929;
+    /* color: #cdcdcd;  */
+  }
+
   .menu__item,
   .menu__item-link {
     font-family: Arial;
