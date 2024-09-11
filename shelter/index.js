@@ -33,12 +33,11 @@ if (menu && menuBtn) {
 body.addEventListener('click', (event) => {
     if( 
      event._isClicked === true ||
-    //  event.target.classList.contains('menu__list') == true ||
+     event.target.classList.contains('menu__list') == true ||
      event.target.classList.contains('menu__item-link') == true  ||
      event.target.classList.contains('burger') == true ||
      event.target.classList.contains('burger__line') == true
     ) return;
-    // console.log("Клик вне блока");
 
    menu.classList.remove('menu__list--active');
    menuBtn.classList.remove('burger--active');
@@ -223,19 +222,6 @@ body.addEventListener('click', (event) => {
      addUniqueCards(rightCards, 3);
  }
 
- 
-//  function addUniqueCards(container, count, usedIndices) {
-//     while (usedIndices.size < count) {
-//         const index = Math.floor(Math.random() * shuffledArr.length);
-//         if (!usedIndices.has(index)) {
-//             usedIndices.add(index); // Добавляем индекс в множество использованных
-//             const newCard = cardTemplate(shuffledArr, index); // Создаем карточку
-//             container.appendChild(newCard); // Добавляем карточку в контейнер
-//         }
-//     }
-// }
-
-
     const sliderWrapper = document.querySelector(".slider__wrapper")
     const cards = document.querySelectorAll(".slider__card").innerHTML;
     const prevBtn = document.querySelector(".slider__btn--left");
@@ -257,8 +243,7 @@ body.addEventListener('click', (event) => {
     nextBtn.addEventListener('click', moveRight);
 
 
-    // const usedLeftIndices = new Set(); // Использованные индексы для левой колонки
-    // const usedRightIndices = new Set(); // Использованные индексы для правой колонки
+
     let currentCardCount;
     
 
@@ -339,3 +324,19 @@ body.addEventListener('click', (event) => {
                 document.body.style.overflow = "auto";
             }
         };
+
+
+             // const usedLeftIndices = new Set(); // Использованные индексы для левой колонки
+    // const usedRightIndices = new Set(); // Использованные индексы для правой колонки
+
+ 
+//  function addUniqueCards(container, count, usedIndices) {
+//     while (usedIndices.size < count) {
+//         const index = Math.floor(Math.random() * shuffledArr.length);
+//         if (!usedIndices.has(index)) {
+//             usedIndices.add(index); // Добавляем индекс в множество использованных
+//             const newCard = cardTemplate(shuffledArr, index); // Создаем карточку
+//             container.appendChild(newCard); // Добавляем карточку в контейнер
+//         }
+//     }
+// }

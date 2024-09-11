@@ -65,6 +65,8 @@ function mixArr () {
     return petsArr;
 }
 
+
+
 const postData = petsArr;
 let currentPage = 1;
 
