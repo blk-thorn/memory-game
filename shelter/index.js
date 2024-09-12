@@ -202,6 +202,7 @@ body.addEventListener('click', (event) => {
              usedIndices.add(index); // Добавляем индекс в множество
              const newCard = cardTemplate(shuffledArr, index); // Создаем карточку
              container.appendChild(newCard); // Добавляем карточку в контейнер
+             return container;
          }
      }
  }
@@ -289,7 +290,8 @@ body.addEventListener('click', (event) => {
 
     function updateCardDisplay() {
         updateCardCount(); 
-        addUniqueCards(currentCardCount);
+        const cards = activeCards;
+        addUniqueCards(cards, currentCardCount);
     }
     
     function handleMediaQueryChange() {
