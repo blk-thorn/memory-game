@@ -202,7 +202,6 @@ body.addEventListener('click', (event) => {
              usedIndices.add(index); // Добавляем индекс в множество
              const newCard = cardTemplate(shuffledArr, index); // Создаем карточку
              container.appendChild(newCard); // Добавляем карточку в контейнер
-             return container;
          }
      }
  }
@@ -257,6 +256,7 @@ body.addEventListener('click', (event) => {
         } else {
             currentCardCount = 3;
         }
+        return currentCardCount;
     }
     
     slider.addEventListener("animationend", (animationEvent) => {
@@ -288,10 +288,28 @@ body.addEventListener('click', (event) => {
     const mediaQueryMobile = window.matchMedia('(min-width: 320px) and (max-width: 767px)');
     const mediaQueryTablet = window.matchMedia('(min-width: 768px) and (max-width: 1279px)');
 
+    function clearCardContainer(container) {
+        container.innerHTML = ''; // Очищаем содержимое контейнера
+    }
+    
+
     function updateCardDisplay() {
         updateCardCount(); 
-        const cards = activeCards;
-        addUniqueCards(cards, currentCardCount);
+
+                // Находим контейнеры
+                const activeCardContainer = activeCards;     
+                const leftCardContainer = leftCards;        
+                const rightCardContainer = rightCards;       
+            
+                // Очищаем каждый контейнер перед добавлением новых карточек
+                clearCardContainer(activeCardContainer);
+                clearCardContainer(leftCardContainer);
+                clearCardContainer(rightCardContainer);
+            
+                // Добавляем карточки в каждый контейнер в зависимости от currentCardCount
+                addUniqueCards(activeCards, currentCardCount);
+                addUniqueCards(leftCards, currentCardCount);
+                addUniqueCards(rightCards, currentCardCount);
     }
     
     function handleMediaQueryChange() {
@@ -302,7 +320,7 @@ body.addEventListener('click', (event) => {
         } else if (mediaQueryTablet.matches) {
             updateCardDisplay();
         } else {
-            console.log('error');
+            updateCardDisplay();
         }
     }
     
