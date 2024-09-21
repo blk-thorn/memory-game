@@ -1,0 +1,170 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #1e1e1e;
+  font-family: "Roboto", sans-serif;
+  /* margin: 0 auto; */
+}
+
+.container__background {
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+  filter: blur(0.9rem);
+  opacity: 0.6;
+}
+
+.content__wrapper {
+  max-width: 100%;
+  z-index: 2;
+}
+
+.audio-player {
+  margin: 0 auto;
+  background-color: #292929;
+  border-radius: 15px;
+  max-width: 400px;
+  /* height: 70vh; */
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.cover-img {
+  width: 100%;
+  border-radius: 10px;
+  height: 30%;
+  background-color: #3a3a3a;
+  margin-bottom: 30px;
+}
+
+.track-info {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.track-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.track-artist {
+  font-size: 14px;
+  color: #bbb;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+#play-icon {
+  display: block; /* Изначально показываем иконку Play */
+}
+
+#pause-icon {
+  display: none; /* Изначально скрываем иконку Pause */
+}
+
+.control-btn svg {
+  width: 24px; /* Установите нужный размер */
+  height: 24px; /* Установите нужный размер */
+}
+
+.control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3a3a3a; /* Темный фон кнопок */
+  border: none;
+  border-radius: 50%; /* Круглая форма */
+  width: 40px; /* Размер кнопок */
+  height: 40px;
+  color: #fff; /* Цвет текста */
+  font-size: 24px; /* Размер шрифта */
+  cursor: pointer; /* Указатель на кнопках */
+  transition: background-color 0.3s; /* Плавный переход при наведении */
+}
+
+.control-btn:hover {
+  background-color: #4a4a4a; /* Более светлый оттенок фона при наведении */
+}
+
+.control-btn:active {
+  background-color: #5a5a5a; /* Темный оттенок при нажатии */
+}
+
+.progress-container {
+  width: 100%;
+}
+
+.progress {
+  width: 100%;
+  height: 10px;
+  background-color: #444;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+.progress-bar {
+  position: relative;
+  height: 100%;
+  background-color: #1db954;
+  border-radius: 5px;
+  width: 30%;
+}
+
+.progress-bar::before {
+  content: "";
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  /* background: #1e1e1e; */
+  border-radius: 50%;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+  background: inherit;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.progress:hover .progress-bar::before {
+  opacity: 1;
+}
+
+.progress-time {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto;
+  color: #fff;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.volume-slider {
+  width: 100%;
+  height: 10px;
+  background-color: #444;
+  border-radius: 5px;
+  cursor: pointer;
+  /* margin-left: 10px; */
+  margin-bottom: 40px;
+}
