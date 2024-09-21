@@ -21,7 +21,6 @@ function loadMusic(index) {
     trackCover.src = songs[index].cover;
     backgroundCover.src = songs[index].cover;
     trackAudio.src = songs[index].path;
-
 }
 
 
@@ -34,7 +33,8 @@ const progress = wrapper.querySelector(".progress");
 const prevButton = wrapper.querySelector(".prev__btn");
 const nextButton = wrapper.querySelector(".next__btn");
 const loopButton = wrapper.querySelector(".loop__btn i");
-const shuffleButton = wrapper.querySelector(".shuffle__btn");
+const currentVolume = wrapper.querySelector(".volume-slider");
+// const shuffleButton = wrapper.querySelector(".shuffle__btn");
 
 
 //play  music function 
@@ -93,7 +93,7 @@ trackAudio.addEventListener("timeupdate", (e) => {
 
  trackAudio.addEventListener("loadeddata", () => {
 
-//Update song total duration
+//Обновить общее время трека
     let songDuration = trackAudio.duration;
     let totalMin = Math.floor(songDuration / 60);
     let totalSec = Math.floor(songDuration % 60);
@@ -103,7 +103,7 @@ trackAudio.addEventListener("timeupdate", (e) => {
     trackDuration.innerText = `${totalMin}:${totalSec}`;
 })
 
-    //Update playing song current time
+    //Обновить текущее время трека
     let currentMin = Math.floor(currentTime / 60);
     let currentSec = Math.floor(currentTime % 60);
     if (currentSec < 10) {
@@ -113,13 +113,45 @@ trackAudio.addEventListener("timeupdate", (e) => {
  });
 
 
- progress.addEventListener("click", (e) => {
-    let progressWidth = progress.clientWidth;
-    let clickedOffSet = e.offsetX;
-    let songDuration = trackAudio.duration;
-    trackAudio.currentTime = (clickedOffSet / progressWidth) * songDuration;
-    // playMusic();
+ let isDragging = false; // Переменная для отслеживания состояния перетаскивания
+
+ // Событие, которое срабатывает при нажатии на элемент
+ progress.addEventListener("mousedown", (e) => {
+     isDragging = true; // Устанавливаем флаг, что нажата кнопка мыши
+     updateCurrentTime(e); // Обновляем текущее время сразу при нажатии
+ 
+     // Добавляем события mousemove и mouseup на документ
+     document.addEventListener("mousemove", onMouseMove);
+     document.addEventListener("mouseup", onMouseUp);
  });
+ 
+ // Функция для обработки перемещения мыши
+ function onMouseMove(e) {
+     if (isDragging) { // Если флаг перетаскивания установлен
+         updateCurrentTime(e); // Обновляем текущее время
+     }
+ }
+ 
+ // Функция для обработки отпускания кнопки мыши
+ function onMouseUp() {
+     isDragging = false; // Сбрасываем флаг, когда кнопка мыши отпущена
+     // Удаляем события mousemove и mouseup из документа
+     document.removeEventListener("mousemove", onMouseMove);
+     document.removeEventListener("mouseup", onMouseUp);
+ }
+ 
+ // Функция для обновления текущего времени трека
+ function updateCurrentTime(e) {
+     let progressWidth = progress.clientWidth;
+     let clickedOffSet = e.clientX - progress.getBoundingClientRect().left; // Учитываем позицию относительно элемента
+     let songDuration = trackAudio.duration;
+ 
+     // Убедимся, что clickedOffSet находится в пределах ширины прогресс-бара
+     clickedOffSet = Math.max(0, Math.min(clickedOffSet, progressWidth)); 
+ 
+     trackAudio.currentTime = (clickedOffSet / progressWidth) * songDuration;
+ }
+ 
 
  loopButton.addEventListener("click", () => {
     let getText = loopButton.innerText;
@@ -163,4 +195,32 @@ trackAudio.addEventListener("timeupdate", (e) => {
         break;  
     }
  })
+
+
+
+ //Change Volume
+ function changeVolume() {
+    trackAudio.volume = currentVolume.value / 100;
+ }
+
+ function sliderDown(e) {
+    if (isDragging) {
+        changeVolume();
+}
+}
+
+function sliderUp() {
+    isDragging = false;
+    document.removeEventListener("mousemove", sliderDown);
+    document.removeEventListener("mouseup", sliderUp);
+}
+
+ currentVolume.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    changeVolume(); 
+    document.addEventListener("mousemove", sliderDown);
+    document.addEventListener("mouseup", sliderUp);
+});
+
+
 
