@@ -69,3 +69,98 @@ function prevTrack() {
     playMusic();
 }
 
+playPauseButton.addEventListener("click", () => {
+    const isMusicPaused = wrapper.classList.contains("paused");
+    isMusicPaused ? pauseMusic() : playMusic();
+})
+
+nextButton.addEventListener("click", () => {
+    nextTrack();
+})
+
+prevButton.addEventListener("click", () => {
+    prevTrack();
+})
+
+trackAudio.addEventListener("timeupdate", (e) => {
+ const currentTime = e.target.currentTime;
+ const duration = e.target.duration;
+ let progressWidth = (currentTime / duration) * 100;
+ progressBar.style.width = `${progressWidth}%`;
+
+ let trackCurrentTime = wrapper.querySelector(".progress-current");
+ let trackDuration = wrapper.querySelector(".progress-duration");
+
+ trackAudio.addEventListener("loadeddata", () => {
+
+//Update song total duration
+    let songDuration = trackAudio.duration;
+    let totalMin = Math.floor(songDuration / 60);
+    let totalSec = Math.floor(songDuration % 60);
+    if (totalSec < 10) {
+        totalSec = `0${totalSec}`;
+    }
+    trackDuration.innerText = `${totalMin}:${totalSec}`;
+})
+
+    //Update playing song current time
+    let currentMin = Math.floor(currentTime / 60);
+    let currentSec = Math.floor(currentTime % 60);
+    if (currentSec < 10) {
+        currentSec = `0${currentSec}`;
+    }
+    trackCurrentTime.innerText = `${currentMin}:${currentSec}`;
+ });
+
+
+ progress.addEventListener("click", (e) => {
+    let progressWidth = progress.clientWidth;
+    let clickedOffSet = e.offsetX;
+    let songDuration = trackAudio.duration;
+    trackAudio.currentTime = (clickedOffSet / progressWidth) * songDuration;
+    // playMusic();
+ });
+
+ loopButton.addEventListener("click", () => {
+    let getText = loopButton.innerText;
+    switch(getText){
+      case "repeat":
+        loopButton.innerText = "repeat_one";
+        loopButton.setAttribute("title", "Song looped")
+        break;
+      case "repeat_one":
+        loopButton.innerText = "shuffle";
+        loopButton.setAttribute("title", "Playlist looped")
+        break;
+      case "shuffle":
+        loopButton.innerText = "repeat";
+        loopButton.setAttribute("title", "Playlist shuffled")
+        break;
+    }
+ })
+
+
+ trackAudio.addEventListener("ended", () => {
+    let getText = loopButton.innerText;
+    switch(getText){
+      case "repeat":
+        nextTrack();
+        break;
+      case "repeat_one":
+        trackAudio.currentTime = 0;
+        loadMusic(trackIndex);
+        playMusic();
+        break;
+      case "shuffle":
+        let randomSong;
+        do {
+            randomSong = Math.floor(Math.random() * songs.length);
+        } while (trackIndex === randomSong);
+    
+        trackIndex = randomSong;
+        loadMusic(trackIndex);
+        playMusic();
+        break;  
+    }
+ })
+
