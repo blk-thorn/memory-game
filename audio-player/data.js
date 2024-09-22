@@ -9,7 +9,7 @@ export const songs = [
         name: 'On & On',
         path: 'assets/audio/Song 2.mp3',
         artist: 'Cartoon, Jéja',
-        cover: 'assets/images/cover2.png'
+        cover: 'assets/images/cover2.jpg'
     },
     {
         name: 'I Forgive Me',
@@ -21,7 +21,7 @@ export const songs = [
         name: 'Silver & Gold',
         path: 'assets/audio/Song 4.mp3',
         artist: 'Arilena Ara',
-        cover: 'assets/images/cover4.png'
+        cover: 'assets/images/cover4.jpg'
     },
     {
         name: 'Like Me',
