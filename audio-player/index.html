@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Audio Player</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="./index.css" class="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./assets/images/cover1.png">
+</head>
+
+<body>
+    <div class="container">
+        <img src="" alt="" class="container__background">
+        <div class="content__wrapper">
+            <div class="audio-player">
+                <div class="track-cover">
+                    <img class="cover-img" src="#" alt="cover">
+                </div>
+                <div class="track-info">
+                    <div class="track-artist">Artist Name</div>
+                    <div class="track-name">Track Title</div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress">
+                        <div class="progress-bar">
+                        </div>
+                    </div>
+                    <div class="progress-time">
+                        <span class="progress-current">0:00</span>
+                        <span class="progress-duration"></span>
+                    </div>
+                    <audio src="" class="track-audio"></audio>
+                </div>
+                <div class="volume-control">
+                    <input type="range" id="volume" class="volume-slider" min="0" max="100" value="50">
+                </div>
+                <div class="controls">
+                    <button class="control-btn loop__btn" title="Repeat">
+                        <i id="repeat-plist" class="material-symbols-outlined">repeat</i>
+                    </button>
+                    <button class="control-btn prev__btn" title="Previous">
+                        <i id="prev-plist" class="material-symbols-outlined">skip_previous</i>
+                    </button>
+                    <button class="control-btn" title="Play/Pause">
+                        <i id="play-pause" class="material-symbols-outlined">play_arrow</i>
+                    </button>
+                    <button class="control-btn next__btn" title="Next">
+                        <i id="next-plist" class="material-symbols-outlined">skip_next</i>
+                    </button>
+                    <button class="control-btn queue__btn" title="Playlist">
+                        <i id="queue-plist" class="material-symbols-outlined">queue_music</i>
+                    </button>
+                </div>
+                <div class="playlist">
+                    <div class="header">
+                        <div class="row">
+                            <i id="queue" class="material-symbols-outlined">queue_music</i>
+                            <span>Playlist</span>
+                        </div>
+                        <i id="close" class="material-symbols-outlined">close</i>
+                    </div>
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <a id="github" href="https://github.com/blk-thorn" class="footer__link githublink">
+            <img src="./assets/images/github-icon.png" alt="github" class="footer__icon2">
+            <p class="footer__text">My GitHub</p>
+        </a>
+
+        <a href="https://rs.school/courses/javascript-preschool-ru" class="footer__link rsslink">
+            <img src="./assets/images/rs-school-logo.svg" alt="rsschool" class="footer__icon">
+        </a>
+        <div class="footer__year">
+            <h3 class="year__text">2024</h3>
+        </div>
+    </footer>
+    <script type="module" src="./index.js" defer></script>
+</body>
+
+</html>
