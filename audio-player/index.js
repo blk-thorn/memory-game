@@ -1,7 +1,5 @@
 import { songs } from "./data.js";
 
-console.log(songs);
-
 const wrapper = document.querySelector(".content__wrapper")
 const trackCover = wrapper.querySelector(".cover-img");
 const trackName = wrapper.querySelector(".track-info .track-name");
@@ -32,19 +30,20 @@ const progress = wrapper.querySelector(".progress");
 
 const prevButton = wrapper.querySelector(".prev__btn");
 const nextButton = wrapper.querySelector(".next__btn");
-const loopButton = wrapper.querySelector(".loop__btn i");
+const loopButton = wrapper.querySelector(".loop__btn");
+const loopButtonIcon = wrapper.querySelector(".loop__btn i");
 const currentVolume = wrapper.querySelector(".volume-slider");
 // const shuffleButton = wrapper.querySelector(".shuffle__btn");
 
+ let isRandom = false;
+ let isLooped = false;
 
-//play  music function 
 function playMusic() {
     wrapper.classList.add("paused");
     playPauseButton.querySelector("i").innerText = "pause"
     trackAudio.play();
 }
 
-//pause  music function 
 function pauseMusic() {
     wrapper.classList.remove("paused");
     playPauseButton.querySelector("i").innerText = "play_arrow"
@@ -52,15 +51,28 @@ function pauseMusic() {
 }
 
 function nextTrack() {
-    trackIndex++;
-    if (trackIndex >= songs.length) {
-        trackIndex = 0;
-    };
-    loadMusic(trackIndex);
-    playMusic();
+    if (isRandom) {
+        handleShuffle();
+    } else if (isLooped) {
+        loopSong();
+    }
+    else {
+        trackIndex++;
+        if (trackIndex >= songs.length) {
+            trackIndex = 0; 
+        }
+        loadMusic(trackIndex);
+        playMusic();
+    }
 }
 
 function prevTrack() {
+    if (isRandom) {
+        handleShuffle();
+    } else if (isLooped) {
+        loopSong();
+    }
+    else {
     trackIndex--;
     if (trackIndex < 0) {
         trackIndex = [songs.length - 1];
@@ -68,19 +80,9 @@ function prevTrack() {
     loadMusic(trackIndex);
     playMusic();
 }
+}
 
-playPauseButton.addEventListener("click", () => {
-    const isMusicPaused = wrapper.classList.contains("paused");
-    isMusicPaused ? pauseMusic() : playMusic();
-})
 
-nextButton.addEventListener("click", () => {
-    nextTrack();
-})
-
-prevButton.addEventListener("click", () => {
-    prevTrack();
-})
 
 trackAudio.addEventListener("timeupdate", (e) => {
  const currentTime = e.target.currentTime;
@@ -113,34 +115,32 @@ trackAudio.addEventListener("timeupdate", (e) => {
  });
 
 
- let isDragging = false; // Переменная для отслеживания состояния перетаскивания
+ let isDragging = false;
 
- // Событие, которое срабатывает при нажатии на элемент
  progress.addEventListener("mousedown", (e) => {
-     isDragging = true; // Устанавливаем флаг, что нажата кнопка мыши
-     updateCurrentTime(e); // Обновляем текущее время сразу при нажатии
+     isDragging = true; // Если нажата кнопка мыши, обновляем текущее время
+     updateCurrentTime(e);
  
      // Добавляем события mousemove и mouseup на документ
      document.addEventListener("mousemove", onMouseMove);
      document.addEventListener("mouseup", onMouseUp);
  });
  
- // Функция для обработки перемещения мыши
+
  function onMouseMove(e) {
-     if (isDragging) { // Если флаг перетаскивания установлен
-         updateCurrentTime(e); // Обновляем текущее время
+     if (isDragging) { // Если флаг перетаскивания установлен, обновляем текущее время
+         updateCurrentTime(e);
      }
  }
  
- // Функция для обработки отпускания кнопки мыши
+ // При отпускании кнопки мыши
  function onMouseUp() {
-     isDragging = false; // Сбрасываем флаг, когда кнопка мыши отпущена
-     // Удаляем события mousemove и mouseup из документа
+     isDragging = false; // Если кнопка мыши отпущена, удаляем события mousemove и mouseup из документа
      document.removeEventListener("mousemove", onMouseMove);
      document.removeEventListener("mouseup", onMouseUp);
  }
  
- // Функция для обновления текущего времени трека
+ // Обновляем текущее времени трека
  function updateCurrentTime(e) {
      let progressWidth = progress.clientWidth;
      let clickedOffSet = e.clientX - progress.getBoundingClientRect().left; // Учитываем позицию относительно элемента
@@ -154,51 +154,84 @@ trackAudio.addEventListener("timeupdate", (e) => {
  
 
  loopButton.addEventListener("click", () => {
-    let getText = loopButton.innerText;
+    let getText = loopButtonIcon.innerText;
     switch(getText){
       case "repeat":
-        loopButton.innerText = "repeat_one";
-        loopButton.setAttribute("title", "Song looped")
+        isRandom = false;
+        isLooped = true;
+        loopButtonIcon.innerText = "repeat_one";
+        loopButtonIcon.setAttribute("title", "Song looped")
         break;
       case "repeat_one":
-        loopButton.innerText = "shuffle";
-        loopButton.setAttribute("title", "Playlist looped")
+        isRandom = true;
+        isLooped = false;
+        loopButtonIcon.innerText = "shuffle";
+        loopButtonIcon.setAttribute("title", "Playlist shuffled")
         break;
       case "shuffle":
-        loopButton.innerText = "repeat";
-        loopButton.setAttribute("title", "Playlist shuffled")
+        isRandom = false;
+        isLooped = false;
+        loopButtonIcon.innerText = "repeat";
+        loopButtonIcon.setAttribute("title", "Playlist repeat")
         break;
     }
  })
 
+
+function handleShuffle() {
+    let randomSong;
+    do {
+        randomSong = Math.floor(Math.random() * songs.length);
+    } while (trackIndex === randomSong);
+
+    trackIndex = randomSong;
+    loadMusic(trackIndex);
+    playMusic();
+}
+
+function loopSong() {
+    trackAudio.currentTime = 0;
+    loadMusic(trackIndex);
+    playMusic();
+}
 
  trackAudio.addEventListener("ended", () => {
     let getText = loopButton.innerText;
     switch(getText){
       case "repeat":
+        isRandom = false;
+        isLooped = false;
         nextTrack();
         break;
       case "repeat_one":
-        trackAudio.currentTime = 0;
-        loadMusic(trackIndex);
-        playMusic();
+        isRandom = false;
+        isLooped = true;
+        loopSong();
         break;
       case "shuffle":
-        let randomSong;
-        do {
-            randomSong = Math.floor(Math.random() * songs.length);
-        } while (trackIndex === randomSong);
-    
-        trackIndex = randomSong;
-        loadMusic(trackIndex);
-        playMusic();
+        isRandom = true;
+        isLooped = false;
+        handleShuffle();
         break;  
     }
  })
 
+ playPauseButton.addEventListener("click", () => {
+    const isMusicPaused = wrapper.classList.contains("paused");
+    isMusicPaused ? pauseMusic() : playMusic();
+})
+
+nextButton.addEventListener("click", () => {
+    nextTrack();
+})
+
+prevButton.addEventListener("click", () => {
+    prevTrack();
+})
 
 
- //Change Volume
+
+ //Изменение громкости
  function changeVolume() {
     trackAudio.volume = currentVolume.value / 100;
  }
