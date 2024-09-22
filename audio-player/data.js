@@ -1,8 +1,8 @@
 export const songs = [
     {
-        name: 'song 1',
+        name: 'Deep in the Bottom',
         path: 'assets/audio/Song 1.mp3',
-        artist: 'artist 1',
+        artist: 'Black Coffee',
         cover: 'assets/images/cover1.png'
     },
     {
@@ -12,21 +12,33 @@ export const songs = [
         cover: 'assets/images/cover2.png'
     },
     {
-        name: 'song 3',
+        name: 'I Forgive Me',
         path: 'assets/audio/Song 3.mp3',
-        artist: 'artist 3',
+        artist: 'ALMA',
         cover: 'assets/images/cover3.png'
     },
     {
-        name: 'song 4',
+        name: 'Silver & Gold',
         path: 'assets/audio/Song 4.mp3',
-        artist: 'artist 4',
+        artist: 'Arilena Ara',
         cover: 'assets/images/cover4.png'
     },
     {
-        name: 'song 5',
+        name: 'Like Me',
         path: 'assets/audio/Song 5.mp3',
-        artist: 'artist 5',
+        artist: 'T-Mass & Britt Lari',
         cover: 'assets/images/cover5.png'
+    },
+    {
+        name: 'Here She Comes Again',
+        path: 'assets/audio/Song 6.mp3',
+        artist: 'Royksopp',
+        cover: 'assets/images/cover6.png'
+    },
+    {
+        name: 'Doudou',
+        path: 'assets/audio/Song 7.mp3',
+        artist: 'Crisologo',
+        cover: 'assets/images/cover7.png'
     },
 ]
