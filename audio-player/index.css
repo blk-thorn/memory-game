@@ -406,3 +406,65 @@ a {
     align-content: baseline;
   }
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .audio-player {
+    position: relative;
+    /* margin: 20% auto; */
+    background-color: #292929;
+    border-radius: 15px;
+    width: 250pt;
+    height: 460pt;
+    padding: 1.5rem;
+    box-shadow: rgba(154, 154, 154, 0.8) 0 0 5px;
+  }
+
+  .control-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3a3a3a;
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: rgba(154, 154, 154, 0.8) 0 0 5px;
+    transition: background-color 0.3s;
+  }
+
+  .control-btn:nth-child(3) {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .control-btn:nth-child(4),
+  .control-btn:nth-child(2) {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .track-info {
+    color: #bbb;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .track-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .track-artist {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .controls {
+    align-content: baseline;
+  }
+}
