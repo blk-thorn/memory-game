@@ -6,9 +6,9 @@ export const songs = [
         cover: 'assets/images/cover1.png'
     },
     {
-        name: 'song 2',
+        name: 'On & On',
         path: 'assets/audio/Song 2.mp3',
-        artist: 'artist 2',
+        artist: 'Cartoon, Jéja',
         cover: 'assets/images/cover2.png'
     },
     {

@@ -11,6 +11,7 @@ let trackIndex = 0;
 
 window.addEventListener("load", () => {
     loadMusic(trackIndex);
+    nowPlaying();
 })
 
 function loadMusic(index) {
@@ -33,7 +34,100 @@ const nextButton = wrapper.querySelector(".next__btn");
 const loopButton = wrapper.querySelector(".loop__btn");
 const loopButtonIcon = wrapper.querySelector(".loop__btn i");
 const currentVolume = wrapper.querySelector(".volume-slider");
-// const shuffleButton = wrapper.querySelector(".shuffle__btn");
+
+const playList = wrapper.querySelector(".playlist");
+const showPlaylist = wrapper.querySelector(".queue__btn");
+const hidePlaylist = wrapper.querySelector("#close");
+
+
+showPlaylist.addEventListener("click", () => {
+    playList.classList.toggle("show")
+})
+
+hidePlaylist.addEventListener ("click", () => {
+    showPlaylist.click();
+})
+
+
+function createPlaylist(array) {
+
+    const ulTag = wrapper.querySelector("ul");
+
+    for (let i = 0; i < array.length; i++) {
+        const track = document.createElement("li");
+        track.setAttribute("li-index", i);
+        
+        
+        const div = document.createElement("div");
+        div.classList.add("row");
+
+        const span = document.createElement("span");
+        span.textContent = array[i].artist;
+
+        const p = document.createElement("p");
+        p.textContent = array[i].name;
+
+        const audioDuration = document.createElement("span");
+        audioDuration.classList.add("audio-duration");
+        audioDuration.setAttribute('id', array[i].path);
+
+        const audioTrack = document.createElement("audio");
+        audioTrack.src = array[i].path;
+        audioTrack.setAttribute('class', array[i].path);
+
+        div.appendChild(span);
+        div.appendChild(p);
+
+        track.appendChild(div);
+        track.appendChild(audioDuration);
+        track.appendChild(audioTrack);
+
+        ulTag.appendChild(track);
+
+    
+        audioTrack.addEventListener("loadeddata", () => {
+                let duration = audioTrack.duration;
+                let totalMin = Math.floor(duration / 60);
+                let totalSec = Math.floor(duration % 60);
+                if (totalSec < 10) {
+                    totalSec = `0${totalSec}`;
+                }
+                audioDuration.innerText = `${totalMin}:${totalSec}`;
+                audioDuration.setAttribute("totalduration", `${totalMin}:${totalSec}`);
+            });
+    }
+}
+
+createPlaylist(songs);
+
+
+const allLiTags = document.querySelectorAll("li");
+
+function nowPlaying() {
+    for (let j = 0; j < allLiTags.length; j++) {
+        let audioTag = allLiTags[j].querySelector(".audio-duration");
+        if (allLiTags[j].classList.contains("playing")) {
+            allLiTags[j].classList.remove("playing");
+            let addDuration = audioTag.getAttribute("totalduration");
+            audioTag.innerText = addDuration;
+        }
+        if (allLiTags[j].getAttribute("li-index") == trackIndex) {
+            allLiTags[j].classList.add("playing");
+            audioTag.innerText = "Playing"
+        }
+        allLiTags[j].addEventListener("click", () => clicked(allLiTags[j]));
+    }
+}
+
+function clicked(element) {
+    let getLiIndex = element.getAttribute("li-index");
+    trackIndex = getLiIndex;
+    loadMusic(trackIndex);
+    playMusic();
+    nowPlaying();
+}
+
+
 
  let isRandom = false;
  let isLooped = false;
@@ -64,6 +158,7 @@ function nextTrack() {
         loadMusic(trackIndex);
         playMusic();
     }
+    nowPlaying();
 }
 
 function prevTrack() {
@@ -80,6 +175,7 @@ function prevTrack() {
     loadMusic(trackIndex);
     playMusic();
 }
+    nowPlaying();
 }
 
 
@@ -135,7 +231,7 @@ trackAudio.addEventListener("timeupdate", (e) => {
  
  // При отпускании кнопки мыши
  function onMouseUp() {
-     isDragging = false; // Если кнопка мыши отпущена, удаляем события mousemove и mouseup из документа
+     isDragging = false; // Если кнопка отпущена, удаляем события mousemove и mouseup 
      document.removeEventListener("mousemove", onMouseMove);
      document.removeEventListener("mouseup", onMouseUp);
  }
