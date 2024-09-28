@@ -12,8 +12,9 @@ search.focus();
 
 async function getData(url) {
     const res = await fetch(url);
+    console.log("res.status", res.status);
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
 
     // Очищаем перед добавлением новых фото(иначе они добавляются снизу)
     imgList.innerHTML = '';  
@@ -35,7 +36,7 @@ function loadImages(image) {
 
 
 function openImageLink(image) {
-    document.body.innerHTML = '<img src="' + image.urls.full + '" style="display: flex; width: 60%; height: auto; margin: 0 auto;" alt="Large Image">';
+    document.body.innerHTML = '<img src="' + image.urls.regular + '" style="display: flex; width: 60%; height: auto; margin: 0 auto;" alt="Large Image">';
 }
 
 
@@ -49,5 +50,19 @@ function performSearch() {
 }
 
 
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    performSearch();
+})
 
+searchBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    performSearch(); 
+})
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        search.value = "";
+    }
+});
 
