@@ -272,6 +272,12 @@ input[type="range"] {
   border-bottom: 1px solid #9c9c9c;
   padding-bottom: 10px;
   margin-bottom: 10px;
+  color: #515151;
+  transition: all 0.3s ease;
+}
+
+.playlist li:hover {
+  color: #000000;
 }
 
 .playlist ul li:last-child {
@@ -287,7 +293,7 @@ ul li .row p {
 }
 
 .playing {
-  color: rgb(20, 98, 147);
+  color: rgb(20, 98, 147) !important;
   pointer-events: none;
 }
 
