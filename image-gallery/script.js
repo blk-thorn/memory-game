@@ -1,5 +1,6 @@
 const apiKey = "tNC9ruDFslvlOtnNxkcyI1874_nBfQ9LguX-4ca_W_I"
 const url = "https://api.unsplash.com/search/photos?query=spring&client_id=SouHY7Uul-OxoMl3LL3c0NkxUtjIrKwf3tsGk1JaiVo&per_page=12";
+const requestUrl = "https://api.unsplash.com/search/photos";
 
 const imgList = document.querySelector(".images");
 const form = document.querySelector("form");
@@ -21,3 +22,32 @@ async function getData(url) {
 }
 
 getData(url);
+
+
+function loadImages(image) {
+    let imgElement = document.createElement('img');
+    imgElement.classList.add("image");
+    imgElement.src = image.urls.regular;
+    imgList.appendChild(imgElement);
+
+    imgElement.addEventListener('click', () => openImageLink(image));
+}
+
+
+function openImageLink(image) {
+    document.body.innerHTML = '<img src="' + image.urls.full + '" style="display: flex; width: 60%; height: auto; margin: 0 auto;" alt="Large Image">';
+}
+
+
+
+function performSearch() {
+    const searchTerm = search.value; // Получаем значение из поля поиска
+    if (searchTerm) {
+        const apiSearchUrl = `${requestUrl}?query=${encodeURIComponent(searchTerm)}&client_id=${apiKey}&per_page=12`;
+        getData(apiSearchUrl);
+    }
+}
+
+
+
+
