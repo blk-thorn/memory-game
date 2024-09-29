@@ -6,6 +6,7 @@ const imgList = document.querySelector(".images");
 const form = document.querySelector("form");
 const search = document.querySelector(".header__search");
 const searchBtn = document.querySelector(".search__btn");
+const body = document.querySelector("body")
 
 search.focus();
 
@@ -14,9 +15,9 @@ async function getData(url) {
     const res = await fetch(url);
     console.log("res.status", res.status);
     const data = await res.json();
-    // console.log(data);
+    console.log(data);
 
-    // Очищаем перед добавлением новых фото(иначе они добавляются снизу)
+    // Нужно очистить перед добавлением новых фото(иначе они добавляются снизу)
     imgList.innerHTML = '';  
 
     data.results.forEach(image => loadImages(image));
@@ -26,23 +27,42 @@ getData(url);
 
 
 function loadImages(image) {
-    let imgElement = document.createElement('img');
+    let imgElement = document.createElement("img");
     imgElement.classList.add("image");
+    imgElement.setAttribute('alt', image.alt_description || "Regular Image");
     imgElement.src = image.urls.regular;
     imgList.appendChild(imgElement);
 
-    imgElement.addEventListener('click', () => openImageLink(image));
+    imgElement.addEventListener("click", () => openImageLink(image));
 }
 
 
 function openImageLink(image) {
-    document.body.innerHTML = '<img src="' + image.urls.regular + '" style="display: flex; width: 60%; height: auto; margin: 0 auto;" alt="Large Image">';
+    const imgContainer = document.createElement("div");
+    imgContainer.classList.add("modal");
+
+
+    let imgElement = document.createElement("img");
+    imgElement.classList.add("imgModal");
+    imgElement.setAttribute('alt', image.alt_description || 'Large Image');
+    imgElement.src = image.urls.regular;
+
+    imgContainer.appendChild(imgElement);
+    imgList.appendChild(imgContainer);
+
+    body.classList.add("noscroll");
+
+    imgContainer.addEventListener("click", () => {
+        imgContainer.remove();
+        body.classList.remove("noscroll");
+    });
+
 }
 
 
 
 function performSearch() {
-    const searchTerm = search.value; // Получаем значение из поля поиска
+    const searchTerm = search.value; // Значение из поля поиска
     if (searchTerm) {
         const apiSearchUrl = `${requestUrl}?query=${encodeURIComponent(searchTerm)}&client_id=${apiKey}&per_page=12`;
         getData(apiSearchUrl);
