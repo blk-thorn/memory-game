@@ -152,7 +152,7 @@ button:hover > .search__text {
 }
 
 .image {
-  padding: 0.5rem 0.25rem;
+  margin: 0.5rem 0.25rem;
   width: calc(33.33% - 1rem);
   height: calc(3rem * 4 + 5rem);
   /* max-height: 200pt; */
@@ -229,27 +229,26 @@ a {
 }
 
 .modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1000;
 }
 
 .imgModal {
-  display: flex;
-  align-items: center;
-  width: 60%;
+  width: fit-content;
   height: 80%;
-  margin: 0 auto;
-  border-radius: 10px;
+  /* margin: 0 auto; */
+  border-radius: 15px;
   object-fit: contain;
 }
+
 @media (min-width: 768px) and (max-width: 1024px) {
   .imgModal {
     width: 70%;
