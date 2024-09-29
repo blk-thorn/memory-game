@@ -42,25 +42,42 @@ function loadImages(image) {
 function openImageLink(image) {
     imgContainer = document.createElement("div");
     imgContainer.classList.add("modal");
+    
+    const imgWrapper = document.createElement("div");
+    imgWrapper.classList.add("modalWrapper");
 
+    const modalBtn = document.createElement("button");
+    modalBtn.classList.add("material-symbols-outlined", "close__btn");
+    modalBtn.textContent = "close"
 
     let imgElement = document.createElement("img");
     imgElement.classList.add("imgModal");
     imgElement.setAttribute('alt', image.alt_description || 'Large Image');
     imgElement.src = image.urls.regular;
 
-    imgContainer.appendChild(imgElement);
+    imgWrapper.appendChild(modalBtn);
+    imgWrapper.appendChild(imgElement);
+    imgContainer.appendChild(imgWrapper);
     imgList.appendChild(imgContainer);
-
+    
     body.classList.add("noscroll");
-
-    imgContainer.addEventListener("click", () => {
-        imgContainer.remove();
-        body.classList.remove("noscroll");
+    modalBtn.addEventListener("click", () => {
+        closeModal();
     });
 
-}
+    imgContainer.addEventListener("click", (e) => {
+        if (e.target === imgContainer ||
+            e.target === imgWrapper) {
+            closeModal();
+        }
+    });
 
+    function closeModal() {
+        imgContainer.remove();
+        body.classList.remove("noscroll");
+    }
+
+}
 
 
 function performSearch() {
