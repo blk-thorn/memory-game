@@ -66,7 +66,7 @@ form {
   display: flex;
   position: relative;
   width: fit-content;
-}
+} /* Убираем контур */
 
 input[type="text"] {
   width: 320px;
@@ -77,8 +77,8 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-  outline: none; /* Убираем контур */
-  border: rgb(207, 173, 40); /* Синяя рамка */
+  outline: none;
+  border: rgb(207, 173, 40);
 }
 
 button[type="reset"] {
@@ -86,19 +86,22 @@ button[type="reset"] {
   display: flex;
   align-items: center;
   font-size: 26px;
+  width: 2rem;
   top: 6%;
-  right: 15%;
+  right: 22%;
   color: #666;
   border: 0;
   display: none;
-  padding: 0 10px;
+
+  /* padding: 0 10px; */
   /* border-radius: 50%; */
-  background-color: #ffffff00;
+  background-color: rgba(0, 0, 0, 0);
   transition: all 0.2s ease-out;
 
   &:hover {
     transform: scale(1.3);
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0) !important;
   }
 }
 
@@ -250,6 +253,11 @@ a {
     width: 7vw;
     margin: 10px 0;
   }
+
+  button[type="reset"] {
+    top: 6%;
+    right: 18%;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 425px) {
@@ -287,6 +295,11 @@ a {
     height: auto;
     max-height: 70%;
     object-fit: cover;
+  }
+
+  button[type="reset"] {
+    top: 6%;
+    right: 15%;
   }
 }
 
