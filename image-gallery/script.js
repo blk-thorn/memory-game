@@ -6,7 +6,8 @@ const imgList = document.querySelector(".images");
 const form = document.querySelector("form");
 const search = document.querySelector(".header__search");
 const searchBtn = document.querySelector(".search__btn");
-const body = document.querySelector("body")
+const body = document.querySelector("body");
+let imgContainer;
 
 search.focus();
 
@@ -38,7 +39,7 @@ function loadImages(image) {
 
 
 function openImageLink(image) {
-    const imgContainer = document.createElement("div");
+    imgContainer = document.createElement("div");
     imgContainer.classList.add("modal");
 
 
@@ -83,6 +84,8 @@ searchBtn.addEventListener("click", (e) => {
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
         search.value = "";
+        imgContainer.remove();
+        body.classList.remove("noscroll");
     }
 });
 
