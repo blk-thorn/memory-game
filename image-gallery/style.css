@@ -110,7 +110,7 @@ input:valid ~ button[type="reset"] {
 }
 
 button {
-  margin: 10px 0;
+  margin: 10px 0px 10px 2px;
   width: 6vw;
   max-width: 60px;
   font-size: clamp(0.625rem, 0.446rem + 0.8949vw, 0.875rem);
@@ -119,10 +119,19 @@ button {
   color: #373737;
   transition: all 0.2s ease-out;
 }
+.search__text {
+  transition: all 0.2s ease-out;
+}
 
 button:hover {
   background-color: rgb(255, 255, 255);
   color: #111111;
+}
+
+button:hover > .search__text {
+  background-color: rgba(0, 0, 0, 0) !important;
+  color: #111111;
+  transform: scale(1.05);
 }
 
 #search__icon {
@@ -255,7 +264,6 @@ a {
 
   button {
     width: 7vw;
-    margin: 10px 0;
   }
 
   button[type="reset"] {
@@ -314,7 +322,7 @@ a {
   }
   button {
     width: 2.5rem;
-    margin: 14px 0;
+    margin: 14px 0px 14px 2px;
   }
 
   #search__icon {
