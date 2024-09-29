@@ -1,4 +1,6 @@
-const apiKey = "tNC9ruDFslvlOtnNxkcyI1874_nBfQ9LguX-4ca_W_I"
+import { apiKey } from "./key.js";
+
+
 const url = "https://api.unsplash.com/search/photos?query=spring&client_id=SouHY7Uul-OxoMl3LL3c0NkxUtjIrKwf3tsGk1JaiVo&per_page=12";
 const requestUrl = "https://api.unsplash.com/search/photos";
 
