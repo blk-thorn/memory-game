@@ -282,7 +282,7 @@ a {
   object-fit: cover;
 }
 
-@media (min-width: 900px) and (max-width: 1024px) {
+/* @media (min-width: 900px) and (max-width: 1024px) {
   .modalWrapper {
     height: 60%;
     width: 90%;
@@ -305,7 +305,7 @@ a {
     height: 30%;
     width: 90%;
   }
-}
+} */
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .image {
