@@ -286,6 +286,10 @@ a {
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  .modalWrapper {
+    height: 70%;
+  }
+
   .image {
     width: calc(50% - 1rem);
     height: calc(3rem * 4 + 5rem);
@@ -302,6 +306,10 @@ a {
 }
 
 @media (min-width: 320px) and (max-width: 425px) {
+  .modalWrapper {
+    height: 50%;
+  }
+
   .logo__icon {
     width: 15vw;
     height: 15vh;
@@ -325,6 +333,10 @@ a {
 }
 
 @media (min-width: 426px) and (max-width: 767px) {
+  .modalWrapper {
+    height: 60%;
+  }
+
   .image {
     width: calc(50% - 1rem);
     height: calc(2rem * 4 + 5rem);
