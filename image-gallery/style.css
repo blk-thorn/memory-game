@@ -220,12 +220,15 @@ a {
 
 .rsslink {
   display: flex;
-  padding-right: 20%;
+  padding-right: 10%;
+  justify-self: center;
+}
+
+.footer__icon {
   width: 10vw;
   height: 10vh;
-  max-width: 60px;
-  max-height: 60px;
-  justify-self: center;
+  max-width: 55px;
+  max-height: 55px;
 }
 
 .modal {
@@ -282,31 +285,6 @@ a {
   object-fit: cover;
 }
 
-/* @media (min-width: 900px) and (max-width: 1024px) {
-  .modalWrapper {
-    height: 60%;
-    width: 90%;
-  }
-}
-@media (min-width: 768px) and (max-width: 900px) {
-  .modalWrapper {
-    height: 55%;
-    width: 90%;
-  }
-}
-@media (min-width: 550px) and (max-width: 767px) {
-  .modalWrapper {
-    height: 45%;
-    width: 90%;
-  }
-}
-@media (min-width: 320px) and (max-width: 550px) {
-  .modalWrapper {
-    height: 30%;
-    width: 90%;
-  }
-} */
-
 @media (min-width: 768px) and (max-width: 1024px) {
   .image {
     width: calc(50% - 1rem);
@@ -324,6 +302,10 @@ a {
 }
 
 @media (min-width: 320px) and (max-width: 425px) {
+  .modalWrapper {
+    height: 60%;
+  }
+
   .logo__icon {
     width: 15vw;
     height: 15vh;
@@ -347,6 +329,10 @@ a {
 }
 
 @media (min-width: 426px) and (max-width: 767px) {
+  .modalWrapper {
+    height: 70%;
+  }
+
   .image {
     width: calc(50% - 1rem);
     height: calc(2rem * 4 + 5rem);
