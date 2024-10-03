@@ -7,7 +7,8 @@ const trackArtist = wrapper.querySelector(".track-info .track-artist");
 const trackAudio = wrapper.querySelector(".track-audio");
 const backgroundCover = document.querySelector(".container__background");
 
-let trackIndex = 0;
+let trackIndex = 0; // Начальное значение для trackIndex
+let playedIndexes = []; // Массив, чтобы отслеживать проигранные индексы
 
 window.addEventListener("load", () => {
     loadMusic(trackIndex);
@@ -273,17 +274,28 @@ trackAudio.addEventListener("timeupdate", (e) => {
     }
  })
 
-
-function handleShuffle() {
+ function handleShuffle() {
     let randomSong;
+
+    // Проверяем, если все песни сыграны
+    if (playedIndexes.length === songs.length) {
+        playedIndexes = []; // Очищаем список сыгранных индексов
+    }
+
     do {
         randomSong = Math.floor(Math.random() * songs.length);
-    } while (trackIndex === randomSong);
+    } while (playedIndexes.includes(randomSong)); // Пока этот индекс уже проигран
 
+    // Добавляем выбранный индекс в массив сыгранных
+    playedIndexes.push(randomSong);
+
+    // Обновляем trackIndex выбранной случайной песни
     trackIndex = randomSong;
+
+    // Загружаем и воспроизводим выбранную песню
     loadMusic(trackIndex);
     playMusic();
-}
+    }
 
 function loopSong() {
     trackAudio.currentTime = 0;
