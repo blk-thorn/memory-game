@@ -1,0 +1,78 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  border: none;
+  margin: 0;
+  box-sizing: border-box;
+  /* font-family: Georgia; */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0 auto;
+  padding: 20px;
+  background: url(./img/pxfuel_background.jpg) left top no-repeat;
+  background-size: cover;
+}
+
+.footer {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  /* background-color: rgba(91, 91, 91); */
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.footer__link {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row;
+  text-decoration: none;
+}
+
+.footer__icon2 {
+  width: 25%;
+  max-width: 60px;
+}
+
+.footer__text {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 8rem;
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 10px;
+  color: #000000;
+}
+
+.footer__year {
+  align-self: center;
+  width: 60px;
+}
+
+a {
+  outline: none;
+  border: none;
+}
+
+.githublink {
+  display: flex;
+  justify-self: center;
+}
+
+.rsslink {
+  display: flex;
+  padding-right: 10%;
+  justify-self: center;
+}
+
+.footer__icon {
+  width: 10vw;
+  height: 10vh;
+  max-width: 55px;
+  max-height: 55px;
+}
