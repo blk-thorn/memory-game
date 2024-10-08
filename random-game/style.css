@@ -5,7 +5,7 @@
   border: none;
   margin: 0;
   box-sizing: border-box;
-  /* font-family: Georgia; */
+  font-family: Georgia;
 }
 
 body {
@@ -15,6 +15,55 @@ body {
   padding: 20px;
   background: url(./img/pxfuel_background.jpg) left top no-repeat;
   background-size: cover;
+}
+
+.cards__wrapper {
+  display: flex;
+  justify-content: center;
+  perspective: 768px;
+}
+
+.cards__container {
+  list-style: none;
+  width: 768px;
+  height: 768px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  margin: -5px;
+}
+
+.card {
+  position: relative;
+  width: calc(25% - 10px);
+  height: calc(25% - 10px);
+  margin: 5px;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: all 0.3s ease-in-out;
+}
+.card:active {
+  transform: scale(0.97);
+  transition: all 0.3s ease-in-out;
+}
+.flip {
+  transform: rotateY(180deg);
+}
+
+.card__face,
+.card__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background: #428dcbb4;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  backface-visibility: hidden;
+}
+
+.card__face {
+  transform: rotateY(180deg);
 }
 
 .footer {
@@ -46,12 +95,14 @@ body {
   font-size: 18px;
   font-weight: 700;
   margin-left: 10px;
-  color: #000000;
+  /* color: #000000; */
+  color: #f4f4f4;
 }
 
 .footer__year {
   align-self: center;
   width: 60px;
+  color: #f4f4f4;
 }
 
 a {
