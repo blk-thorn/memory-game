@@ -3,10 +3,15 @@ import { newArray } from "./data.js"
 let errors = 0;
 let isLocked = false; 
 
+const body = document.body;
+const modal = document.querySelector(".modal");
 const cardsContainer = document.querySelector(".cards__container");
+const restartBtn = document.querySelector(".restart__btn");
+const modalRestartBtn = document.querySelector(".modal__btn");
+const modalcloseBtn = document.querySelector(".modal__close");
+
 let firstCard = null; 
 let secondCard = null;
-// const cards = document.querySelectorAll(".card");
 const flipDuration = 1500; // Время переворота
 
 window.addEventListener("load", () => {
@@ -75,14 +80,15 @@ function loadCards(array) {
                     secondCard = null; 
                     errors++; // Увеличиваем счетчик ошибок
                     document.getElementById("errors").innerText = errors; // Обновляем счетчик ошибок
-                }, 300);
+                }, 600);
             }
     
             // Проверяем на выигрыш
             if (newArray.length === document.querySelectorAll(".match").length) {
                 setTimeout(function() {
-                    alert("Win!");
-                }, 300);
+                    body.classList.add('noscroll');
+                    modal.style.display = "flex";
+                }, 600);
             }
         }
     });
@@ -122,3 +128,17 @@ function shuffleCards() {
     }
     console.log(newArray)
 }
+
+
+restartBtn.addEventListener("click", () => {
+    window.location.reload();
+});
+
+modalRestartBtn.addEventListener("click", () => {
+    window.location.reload();
+});
+
+modalcloseBtn.addEventListener ("click", () => {
+    body.classList.remove('noscroll');
+    modal.style.display = "none";
+});

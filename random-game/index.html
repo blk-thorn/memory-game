@@ -8,14 +8,88 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <header>
-    <h1 class="title">Twin Memory Game</h1>
+    <h1 class="title">Welcome to "Twin" Game</h1>
     <h2>Errors: <span id="errors">0</span></h2>
 </header>
 <main>
     <section class="cards__wrapper">
         <ul class="cards__container">
         </ul>
+        <button class="restart__btn">Restart game</button>
     </section>
+    <div class="modal">
+        <div class="modalWrapper">
+            <div class="modal__content">
+                <button class="modal__close">&#10007;</button>
+                <h2 class="modal__title">
+                    Win!
+                </h2>
+                <table class="scores">
+                    <colgroup>
+                        <col />
+                        <col style="background-color: #d7a029" />
+                    </colgroup>
+                    <tr>
+                        <th class="table__title">Player</th>
+                        <th>Score</th>
+                    </tr>
+                    <tr>
+                        <td>1. Player 1</td>
+                        <td>#</td>
+                    </tr>
+                    <tr>
+                        <td>2. Player 2</td>
+                        <td>#</td>
+                    </tr>
+                    <tr>
+                        <td>3. Player 3</td>
+                        <td>#</td>
+                    </tr>
+                    <tr>
+                        <td>4. Player 4</td>
+                        <td>#</td>
+                    </tr>
+                    <tr>
+                        <td>5. Player 5</td>
+                        <td>#</td>
+                    </tr>
+                    <tr>
+                        <td>6. Player 6</td>
+                        <td>#</td>
+                    </tr>
+                    <tr>
+                        <td>7. Player 7</td>
+                        <td>#</td>
+                    </tr>
+                    <tr>
+                        <td>8. Player 8</td>
+                        <td>#</td>
+                    </tr>
+                    <tr>
+                        <td>9. Player 9</td>
+                        <td>#</td>
+                    </tr>
+                    <tr>
+                        <td>10. Player 10</td>
+                        <td>#</td>
+                    </tr>
+                </table>
+                <!-- <ol class="scores">
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                </ol> -->
+                <button class="modal__btn">Restart game</button>
+            </div>
+        </div>
+    </div>
 </main>
 <footer class="footer">
     <a id="github" href="https://github.com/blk-thorn" class="footer__link githublink">
