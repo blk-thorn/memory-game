@@ -1,7 +1,6 @@
 import { newArray } from "./data.js"
 
 let errors = 0;
-let isLocked = false; 
 
 const body = document.body;
 const modal = document.querySelector(".modal");
@@ -9,6 +8,11 @@ const cardsContainer = document.querySelector(".cards__container");
 const restartBtn = document.querySelector(".restart__btn");
 const modalRestartBtn = document.querySelector(".modal__btn");
 const modalcloseBtn = document.querySelector(".modal__close");
+const bestScores = JSON.parse(localStorage.getItem("bestScores"));
+const scoreTable = document.querySelectorAll(".table__score");
+const recentScore = document.getElementById("errors");
+
+const MAX_BEST_SCORE = 10;
 
 let firstCard = null; 
 let secondCard = null;
@@ -52,11 +56,11 @@ function loadCards(array) {
         // Если не выбрана ни одна карта
         if (firstCard === null) {
             firstCard = card;
-            console.log("firstCard", firstCard);
+            // console.log("firstCard", firstCard);
         } else {
             // Если первая карта уже выбрана, то это вторая карта
             secondCard = card;
-            console.log("secondCard", secondCard);
+            // console.log("secondCard", secondCard);
     
             // Сравниваем карты
             const firstCardFace = firstCard.querySelector(".card__face");
@@ -79,12 +83,28 @@ function loadCards(array) {
                     firstCard = null;
                     secondCard = null; 
                     errors++; // Увеличиваем счетчик ошибок
-                    document.getElementById("errors").innerText = errors; // Обновляем счетчик ошибок
-                }, 600);
+                    recentScore.innerText = errors; // Обновляем счетчик ошибок
+                }, 500);
             }
     
             // Проверяем на выигрыш
             if (newArray.length === document.querySelectorAll(".match").length) {
+
+                const score = {score: errors};
+                
+                
+                bestScores.push(score);
+                bestScores.sort( (a, b) => a.score - b.score )
+                bestScores.slice(10);
+                
+                localStorage.setItem("bestScores", JSON.stringify(bestScores));
+                
+                scoreTable.forEach((cell, index) => {
+                    if (index < bestScores.length) {
+                        cell.innerText = bestScores[index].score; // Извлекаем score из объекта и присваиваем
+                    }
+                })
+
                 setTimeout(function() {
                     body.classList.add('noscroll');
                     modal.style.display = "flex";
@@ -126,7 +146,6 @@ function shuffleCards() {
         newArray[i] =  newArray[j];
         newArray[j] = temp;
     }
-    console.log(newArray)
 }
 
 
@@ -142,3 +161,4 @@ modalcloseBtn.addEventListener ("click", () => {
     body.classList.remove('noscroll');
     modal.style.display = "none";
 });
+

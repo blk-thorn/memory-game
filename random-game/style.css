@@ -116,15 +116,20 @@ body {
   font-size: 1.5rem;
   width: 10rem;
   height: 3rem;
-  border-radius: 1rem;
+  border-radius: 1.8rem;
   border: 1px solid rgb(255, 197, 80);
-  background-color: #428dcbb4;
-  color: #f4f4f4;
+  background-color: #428dcbde;
+  color: #fff;
   cursor: pointer;
+  transition: all 0.3s ease-out;
 }
 
 .restart__btn:active {
   transform: scale(0.99);
+}
+
+.restart__btn:hover {
+  background-color: rgb(255, 197, 80);
 }
 
 .footer {
@@ -229,9 +234,9 @@ a {
 
 .modal__btn {
   margin-bottom: 3.5rem;
-  width: 10rem;
-  height: 2.5rem;
-  font-size: 1rem;
+  width: 11rem;
+  height: 3rem;
+  font-size: 1.3rem;
   font-weight: bolder;
   border-radius: 2rem;
   background-color: rgba(0, 0, 0, 0);
@@ -256,8 +261,26 @@ a {
   margin: 6rem 0rem;
 }
 
-.table__title {
-  text-align: start;
+.table__title,
+.score__title {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.player {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.player__number {
+  font-size: 1.3rem;
+  font-weight: bolder;
+}
+
+.table__score {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 
 .modal__close {
