@@ -1,4 +1,4 @@
-export const allCards = [
+const allCards = [
     {
         img: './img/twin_peaks_icons_1.png',
         img2: './img/twin_peaks_icons_back.png'
@@ -24,3 +24,5 @@ export const allCards = [
         img2: './img/twin_peaks_icons_back.png'
     }   
 ]
+
+export const newArray = allCards.concat(allCards); 

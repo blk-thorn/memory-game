@@ -8,6 +8,25 @@
   font-family: Georgia;
 }
 
+/* header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+.title {
+  text-align: center;
+  color: #000000;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  text-align: center;
+  color: #0b0b0b;
+  font-size: 2rem;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -40,14 +59,22 @@ body {
   margin: 5px;
   transform: scale(1);
   transform-style: preserve-3d;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease;
 }
+
 .card:active {
-  transform: scale(0.97);
-  transition: all 0.3s ease-in-out;
+  /* transform: scale(0.98); */
+  transition: all 0.2s ease;
 }
+
 .flip {
   transform: rotateY(180deg);
+  transition: all 0.2s ease;
+}
+
+.match {
+  transform: rotateY(180deg);
+  transition: all 0.2s ease;
 }
 
 .card__face,
@@ -92,7 +119,7 @@ body {
   flex-wrap: nowrap;
   align-items: center;
   width: 8rem;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   margin-left: 10px;
   /* color: #000000; */
