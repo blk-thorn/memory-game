@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="icon" href="./img/twin_peaks_icons_4.png">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<header>
+    <h1 class="title">Welcome to "Twin" Game</h1>
+    <h2>Errors: <span id="errors">0</span></h2>
+</header>
+<main>
+    <section class="cards__wrapper">
+        <ul class="cards__container">
+        </ul>
+        <button class="restart__btn">Restart game</button>
+    </section>
+    <div class="modal">
+        <div class="modalWrapper">
+            <div class="modal__content">
+                <button class="modal__close">&#10007;</button>
+                <h2 class="modal__title">
+                    You win!
+                </h2>
+                <table class="scores">
+                    <colgroup>
+                        <col />
+                        <col style="background-color: #d7a029" />
+                    </colgroup>
+                    <tr>
+                        <th class="table__title">Player</th>
+                        <th class="score__title">Score</th>
+                    </tr>
+                    <tr>
+                        <td class="player"><span class="player__number">1.</span> Random user</td>
+                        <td class="table__score">#</td>
+                    </tr>
+                    <tr>
+                        <td class="player"><span class="player__number">2.</span> Random user</td>
+                        <td class="table__score">#</td>
+                    </tr>
+                    <tr>
+                        <td class="player"><span class="player__number">3.</span> Random user</td>
+                        <td class="table__score">#</td>
+                    </tr>
+                    <tr>
+                        <td class="player"><span class="player__number">4.</span> Random user</td>
+                        <td class="table__score">#</td>
+                    </tr>
+                    <tr>
+                        <td class="player"><span class="player__number">5.</span> Random user</td>
+                        <td class="table__score">#</td>
+                    </tr>
+                    <tr>
+                        <td class="player"><span class="player__number">6.</span> Random user</td>
+                        <td class="table__score">#</td>
+                    </tr>
+                    <tr>
+                        <td class="player"><span class="player__number">7.</span> Random user</td>
+                        <td class="table__score">#</td>
+                    </tr>
+                    <tr>
+                        <td class="player"><span class="player__number">8.</span> Random user</td>
+                        <td class="table__score">#</td>
+                    </tr>
+                    <tr>
+                        <td class="player"><span class="player__number">9.</span> Random user</td>
+                        <td class="table__score">#</td>
+                    </tr>
+                    <tr>
+                        <td class="player"><span class="player__number">10.</span> Random user</td>
+                        <td class="table__score">#</td>
+                    </tr>
+                </table>
+                <!-- <ol class="scores">
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                    <li class="top__scores"></li>
+                </ol> -->
+                <button class="modal__btn">Play again</button>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <a id="github" href="https://github.com/blk-thorn" class="footer__link githublink">
+        <img src="./img/github-icon.png" alt="github" class="footer__icon2">
+        <p class="footer__text">My GitHub</p>
+    </a>
+
+    <a href="https://rs.school/courses/javascript-preschool-ru" class="footer__link rsslink">
+        <img src="./img/rs-school-logo.svg" alt="rsschool" class="footer__icon">
+    </a>
+    <div class="footer__year">
+        <h3 class="year__text">2024</h3>
+    </div>
+</footer>
+
+<body>
+    <script src="./index.js" type="module" defer></script>
+</body>
+
+</html>
