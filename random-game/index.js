@@ -14,6 +14,14 @@ const recentScore = document.getElementById("errors");
 const currentVolume = document.querySelector(".volume-slider");
 const muteButton = document.getElementById('muteButton');
 
+const cardSound = new Audio();
+cardSound.src = "./sounds/Cardflip1.mp3"
+
+const backgroundMusic = new Audio ();
+backgroundMusic.src = "./sounds/Theme1.mp3"
+backgroundMusic.loop = true;
+
+
 
 let isDragging = false;
 const MAX_BEST_SCORE = 10;
@@ -28,7 +36,6 @@ window.addEventListener("load", () => {
         loadCards(cardData);
     });
     flipAllCards();
-    backgroundMusic.play();
 });
 
 function loadCards(array) {
@@ -48,8 +55,10 @@ function loadCards(array) {
     card.appendChild(cardFace);
     card.appendChild(cardBack);
     cardsContainer.appendChild(card);
+    
 
     card.addEventListener('click', () => {
+        backgroundMusic.play();
         cardSound.play();
         // Убираем клик по перевернутым и совпадающим картам
         if (card.classList.contains("flip") || card.classList.contains("match")) {
@@ -167,13 +176,6 @@ modalcloseBtn.addEventListener ("click", () => {
     modal.style.display = "none";
 });
  
-const cardSound = new Audio();
-cardSound.src = "./sounds/Cardflip1.mp3"
-
-const backgroundMusic = new Audio ();
-backgroundMusic.src = "./sounds/Theme.mp3"
-backgroundMusic.loop = true;
-
 
 
 function changeVolume() {
@@ -205,9 +207,11 @@ currentVolume.addEventListener("mousedown", (e) => {
         function mute() {
             if (isMuted) {
                 backgroundMusic.volume = 1; // Громкость 100%
+                // cardSound.volume = 1;
                 muteButton.innerText = "volume_off";
             } else {
                 backgroundMusic.volume = 0; // Громкость 0
+                // cardSound.volume = 0;
                 muteButton.innerText = "volume_up";
             }
             // Меняем состояние
