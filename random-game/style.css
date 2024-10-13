@@ -142,7 +142,7 @@ body {
 
 .footer {
   margin: 0 auto;
-  width: 1280px;
+  max-width: 1280px;
   padding-top: 2rem;
   display: flex;
   flex-direction: row;
@@ -235,13 +235,13 @@ a {
   flex-direction: column;
   align-items: center;
   width: 720px;
-  height: 768px;
+  height: auto;
   background-color: #428dcbb4;
   border-radius: 15px;
 }
 
 .modal__btn {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   width: 11rem;
   height: 3rem;
   font-size: 1.3rem;
@@ -260,21 +260,21 @@ a {
 }
 
 .modal__title {
-  margin-top: 2rem;
+  margin-top: 1.7rem;
   margin-bottom: 0.5rem;
   font-size: 3rem;
   border-bottom: 2px solid #d7a029;
 }
 
 .result {
-  font-size: 2rem;
+  font-size: 1.6rem;
   border-bottom: 2px solid #d7a029;
 }
 
 .scores {
   width: 50%;
   height: 0%;
-  margin: 3rem 0rem;
+  margin: 2.2rem 0rem;
   border: 2px solid #d7a029;
 }
 
@@ -347,4 +347,142 @@ a {
   cursor: pointer;
   /* box-shadow: rgba(154, 154, 154, 0.8) 0 0 5px; */
   transition: background-color 0.3s;
+}
+
+@media (min-width: 530px) and (max-width: 767px) {
+  .cards__container {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 520px;
+    height: 380px;
+    gap: 10px;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .title {
+    text-align: center;
+    color: #000000;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    text-align: center;
+    color: #0b0b0b;
+    font-size: 1.3rem;
+  }
+
+  .modal__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    background-color: #428dcbb4;
+    border-radius: 15px;
+  }
+
+  .table__title,
+  .score__title,
+  .player,
+  .table__score {
+    text-align: center;
+    font-size: 1rem;
+    border-bottom: 1px solid #d7a029;
+    border-right: 1px solid #d7a029;
+  }
+
+  .modal__title {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    border-bottom: 2px solid #d7a029;
+  }
+
+  .result {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #d7a029;
+  }
+
+  .scores {
+    border: 1px solid #d7a029;
+    margin: 1rem 0rem;
+  }
+
+  .table__score {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 529px) {
+  .cards__container {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 320px;
+    height: 240px;
+    gap: 10px;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .title {
+    text-align: center;
+    color: #000000;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    text-align: center;
+    color: #0b0b0b;
+    font-size: 1.3rem;
+  }
+
+  .table__title,
+  .score__title,
+  .player,
+  .table__score {
+    text-align: center;
+    font-size: 1rem;
+    border-bottom: 1px solid #d7a029;
+    border-right: 1px solid #d7a029;
+  }
+
+  .modal__title {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    border-bottom: 2px solid #d7a029;
+  }
+
+  .result {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #d7a029;
+  }
+
+  .scores {
+    border: 1px solid #d7a029;
+    margin: 1rem 0rem;
+  }
+
+  .modal__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    background-color: #428dcbb4;
+    border-radius: 15px;
+  }
+
+  .table__score {
+    font-size: 0.7rem;
+  }
 }
