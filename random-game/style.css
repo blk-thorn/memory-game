@@ -5,9 +5,26 @@
   border: none;
   margin: 0;
   box-sizing: border-box;
-  font-family: Georgia;
+  /* font-family: Georgia; */
 }
 
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
 /* header {
   display: flex;
   flex-direction: column;
@@ -113,15 +130,16 @@ body {
 }
 
 .restart__btn {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   width: 10rem;
   height: 3rem;
   border-radius: 1.8rem;
   border: 1px solid rgb(255, 197, 80);
-  background-color: #428dcbde;
-  color: #fff;
+  background-color: #428dcb;
+  color: #ffffff;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s ease;
 }
 
 .restart__btn:active {
@@ -130,6 +148,9 @@ body {
 
 .restart__btn:hover {
   background-color: rgb(255, 197, 80);
+  border: 1px solid rgb(255, 197, 80);
+  color: #000000;
+  transition: all 0.5s ease;
 }
 
 .footer {
