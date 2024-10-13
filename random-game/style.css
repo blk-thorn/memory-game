@@ -32,6 +32,8 @@ h2 {
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   margin: 0 auto;
@@ -68,7 +70,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  width: 700px;
+  width: 690px;
   height: 520px;
   gap: 10px;
   margin-top: 1rem;
@@ -233,7 +235,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 720px;
+  width: 680px;
   height: auto;
   background-color: #428dcbb4;
   border-radius: 15px;
@@ -354,7 +356,7 @@ a {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    width: 520px;
+    width: 500px;
     height: 380px;
     gap: 10px;
     margin-top: 1.5rem;
