@@ -5,7 +5,6 @@
   border: none;
   margin: 0;
   box-sizing: border-box;
-  /* font-family: Georgia; */
 }
 
 header {
@@ -23,7 +22,7 @@ header {
   text-align: center;
   color: #000000;
   font-size: 2.2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 h2 {
@@ -33,6 +32,8 @@ h2 {
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   margin: 0 auto;
@@ -50,7 +51,7 @@ body {
 }
 
 .controls {
-  margin-top: 1rem;
+  margin-top: 0.6rem;
   margin-left: -2rem;
 }
 
@@ -69,11 +70,11 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  width: 720px;
-  height: 530px;
+  width: 690px;
+  height: 520px;
   gap: 10px;
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1.7rem;
 }
 
 .card {
@@ -234,7 +235,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 720px;
+  width: 680px;
   height: auto;
   background-color: #428dcbb4;
   border-radius: 15px;
@@ -355,7 +356,7 @@ a {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    width: 520px;
+    width: 500px;
     height: 380px;
     gap: 10px;
     margin-top: 1.5rem;
