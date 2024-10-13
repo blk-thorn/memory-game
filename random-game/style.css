@@ -265,6 +265,11 @@ a {
   border-bottom: 2px solid #d7a029;
 }
 
+.result {
+  font-size: 2rem;
+  border-bottom: 2px solid #d7a029;
+}
+
 .scores {
   width: 50%;
   height: 0%;
