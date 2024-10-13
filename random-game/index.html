@@ -12,10 +12,21 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 <header>
     <h1 class="title">Welcome to "Twin" Game</h1>
     <h2>Errors: <span id="errors">0</span></h2>
+    <div class="controls">
+        <div class="volume__wrapper">
+            <button class="control-btn next__btn" title="Off">
+                <i id="muteButton" class="material-symbols-outlined">volume_off</i>
+            </button>
+            <div class="volume-control">
+                <input type="range" id="volume" class="volume-slider" min="0" max="100" value="50">
+            </div>
+        </div>
+    </div>
 </header>
 <main>
     <section class="cards__wrapper">
@@ -33,7 +44,7 @@
                 <table class="scores">
                     <colgroup>
                         <col />
-                        <col style="background-color: #d7a029" />
+                        <col class="score__column" />
                     </colgroup>
                     <tr>
                         <th class="table__title">Player</th>
@@ -41,57 +52,45 @@
                     </tr>
                     <tr>
                         <td class="player"><span class="player__number">1.</span> Random user</td>
-                        <td class="table__score">#</td>
+                        <td class="table__score">999</td>
                     </tr>
                     <tr>
                         <td class="player"><span class="player__number">2.</span> Random user</td>
-                        <td class="table__score">#</td>
+                        <td class="table__score">999</td>
                     </tr>
                     <tr>
                         <td class="player"><span class="player__number">3.</span> Random user</td>
-                        <td class="table__score">#</td>
+                        <td class="table__score">999</td>
                     </tr>
                     <tr>
                         <td class="player"><span class="player__number">4.</span> Random user</td>
-                        <td class="table__score">#</td>
+                        <td class="table__score">999</td>
                     </tr>
                     <tr>
                         <td class="player"><span class="player__number">5.</span> Random user</td>
-                        <td class="table__score">#</td>
+                        <td class="table__score">999</td>
                     </tr>
                     <tr>
                         <td class="player"><span class="player__number">6.</span> Random user</td>
-                        <td class="table__score">#</td>
+                        <td class="table__score">999</td>
                     </tr>
                     <tr>
                         <td class="player"><span class="player__number">7.</span> Random user</td>
-                        <td class="table__score">#</td>
+                        <td class="table__score">999</td>
                     </tr>
                     <tr>
                         <td class="player"><span class="player__number">8.</span> Random user</td>
-                        <td class="table__score">#</td>
+                        <td class="table__score">999</td>
                     </tr>
                     <tr>
                         <td class="player"><span class="player__number">9.</span> Random user</td>
-                        <td class="table__score">#</td>
+                        <td class="table__score">999</td>
                     </tr>
                     <tr>
                         <td class="player"><span class="player__number">10.</span> Random user</td>
-                        <td class="table__score">#</td>
+                        <td class="table__score">999</td>
                     </tr>
                 </table>
-                <!-- <ol class="scores">
-                    <li class="top__scores"></li>
-                    <li class="top__scores"></li>
-                    <li class="top__scores"></li>
-                    <li class="top__scores"></li>
-                    <li class="top__scores"></li>
-                    <li class="top__scores"></li>
-                    <li class="top__scores"></li>
-                    <li class="top__scores"></li>
-                    <li class="top__scores"></li>
-                    <li class="top__scores"></li>
-                </ol> -->
                 <button class="modal__btn">Play again</button>
             </div>
         </div>
