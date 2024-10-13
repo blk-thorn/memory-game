@@ -8,28 +8,11 @@
   /* font-family: Georgia; */
 }
 
-.roboto-regular {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.roboto-medium {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.roboto-bold {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-/* header {
+header {
   display: flex;
   flex-direction: column;
   align-items: center;
-} */
+}
 
 .noscroll {
   overflow: hidden;
@@ -64,6 +47,11 @@ body {
   /* justify-content: center; */
   align-items: center;
   perspective: 768px;
+}
+
+.controls {
+  margin-top: 1rem;
+  margin-left: -2rem;
 }
 
 /* .cards__container {
@@ -130,20 +118,19 @@ body {
 }
 
 .restart__btn {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   width: 10rem;
   height: 3rem;
   border-radius: 1.8rem;
-  border: 1px solid rgb(255, 197, 80);
+  border: 2px solid #d7a029;
   background-color: #428dcb;
   color: #ffffff;
-  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .restart__btn:active {
-  transform: scale(0.99);
+  transform: scale(0.98);
 }
 
 .restart__btn:hover {
@@ -254,14 +241,14 @@ a {
 }
 
 .modal__btn {
-  margin-bottom: 3.5rem;
+  margin-bottom: 2rem;
   width: 11rem;
   height: 3rem;
   font-size: 1.3rem;
   font-weight: bolder;
   border-radius: 2rem;
   background-color: rgba(0, 0, 0, 0);
-  color: #000000;
+  color: #ffffff;
   border: 2px solid #d7a029;
   transition: all 0.3s ease-out;
   cursor: pointer;
@@ -269,28 +256,34 @@ a {
 
 .modal__btn:hover {
   background-color: #d7a029;
+  color: #000000;
 }
 
 .modal__title {
   margin-top: 2rem;
-  font-size: 2.5rem;
+  font-size: 3rem;
+  border-bottom: 2px solid #d7a029;
 }
 
 .scores {
   width: 50%;
   height: 0%;
-  margin: 6rem 0rem;
+  margin: 3rem 0rem;
+  border: 2px solid #d7a029;
 }
 
 .table__title,
 .score__title {
   text-align: center;
   font-size: 1.5rem;
+  border-bottom: 2px solid #d7a029;
+  border-right: 2px solid #d7a029;
 }
 
 .player {
   text-align: center;
   font-size: 1.3rem;
+  border-right: 2px solid #d7a029;
 }
 
 .player__number {
@@ -312,7 +305,7 @@ a {
   height: 2.5rem;
   border: none;
   border-radius: 50%;
-  color: #000000;
+  color: #ffffff;
   background-color: rgba(0, 0, 0, 0);
   border: 2px solid #d7a029;
   transition-duration: 0.5s;
@@ -322,4 +315,30 @@ a {
   border: 2px solid #d7a029;
   background: #d7a029;
   cursor: pointer;
+  color: #000000;
+}
+
+.score__column {
+  background-color: #d7a029;
+}
+
+.volume__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0e79fc00;
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+  /* box-shadow: rgba(154, 154, 154, 0.8) 0 0 5px; */
+  transition: background-color 0.3s;
 }

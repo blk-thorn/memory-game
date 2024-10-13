@@ -11,7 +11,11 @@ const modalcloseBtn = document.querySelector(".modal__close");
 const bestScores = JSON.parse(localStorage.getItem("bestScores")) ?? [];
 const scoreTable = document.querySelectorAll(".table__score");
 const recentScore = document.getElementById("errors");
+const currentVolume = document.querySelector(".volume-slider");
+const muteButton = document.getElementById('muteButton');
 
+
+let isDragging = false;
 const MAX_BEST_SCORE = 10;
 
 let firstCard = null; 
@@ -24,6 +28,7 @@ window.addEventListener("load", () => {
         loadCards(cardData);
     });
     flipAllCards();
+    backgroundMusic.play();
 });
 
 function loadCards(array) {
@@ -45,6 +50,7 @@ function loadCards(array) {
     cardsContainer.appendChild(card);
 
     card.addEventListener('click', () => {
+        cardSound.play();
         // Убираем клик по перевернутым и совпадающим картам
         if (card.classList.contains("flip") || card.classList.contains("match")) {
             return;
@@ -160,4 +166,52 @@ modalcloseBtn.addEventListener ("click", () => {
     body.classList.remove('noscroll');
     modal.style.display = "none";
 });
+ 
+const cardSound = new Audio();
+cardSound.src = "./sounds/Cardflip1.mp3"
 
+const backgroundMusic = new Audio ();
+backgroundMusic.src = "./sounds/Theme.mp3"
+backgroundMusic.loop = true;
+
+
+
+function changeVolume() {
+    backgroundMusic.volume = currentVolume.value / 100;
+ }
+
+ function sliderDown(e) {
+    if (isDragging) {
+        changeVolume();
+}
+}
+
+function sliderUp() {
+    isDragging = false;
+    document.removeEventListener("mousemove", sliderDown);
+    document.removeEventListener("mouseup", sliderUp);
+}
+
+
+currentVolume.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    changeVolume(); 
+    document.addEventListener("mousemove", sliderDown);
+    document.addEventListener("mouseup", sliderUp);
+});
+
+        let isMuted = false; // Звук включен
+
+        function mute() {
+            if (isMuted) {
+                backgroundMusic.volume = 1; // Громкость 100%
+                muteButton.innerText = "volume_off";
+            } else {
+                backgroundMusic.volume = 0; // Громкость 0
+                muteButton.innerText = "volume_up";
+            }
+            // Меняем состояние
+            isMuted = !isMuted;
+        }
+
+        muteButton.addEventListener('click', mute);
