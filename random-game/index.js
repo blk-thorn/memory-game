@@ -12,7 +12,8 @@ const bestScores = JSON.parse(localStorage.getItem("bestScores")) ?? [];
 const scoreTable = document.querySelectorAll(".table__score");
 const recentScore = document.getElementById("errors");
 const currentVolume = document.querySelector(".volume-slider");
-const muteButton = document.getElementById('muteButton');
+const muteButton = document.getElementById("muteButton");
+const result = document.querySelector(".result")
 
 const cardSound = new Audio();
 cardSound.src = "./sounds/Cardflip1.mp3"
@@ -98,6 +99,7 @@ function loadCards(array) {
                     secondCard = null; 
                     errors++; // Увеличиваем счетчик ошибок
                     recentScore.innerText = errors; // Обновляем значение счетчика
+                    result.innerText = `Result: ${errors} errors`;
                 }, 500);
             }
     

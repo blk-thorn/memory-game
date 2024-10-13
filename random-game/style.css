@@ -261,7 +261,13 @@ a {
 
 .modal__title {
   margin-top: 2rem;
+  margin-bottom: 0.5rem;
   font-size: 3rem;
+  border-bottom: 2px solid #d7a029;
+}
+
+.result {
+  font-size: 2rem;
   border-bottom: 2px solid #d7a029;
 }
 
