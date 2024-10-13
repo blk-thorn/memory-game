@@ -8,7 +8,7 @@ const cardsContainer = document.querySelector(".cards__container");
 const restartBtn = document.querySelector(".restart__btn");
 const modalRestartBtn = document.querySelector(".modal__btn");
 const modalcloseBtn = document.querySelector(".modal__close");
-const bestScores = JSON.parse(localStorage.getItem("bestScores"));
+const bestScores = JSON.parse(localStorage.getItem("bestScores")) ?? [];
 const scoreTable = document.querySelectorAll(".table__score");
 const recentScore = document.getElementById("errors");
 
@@ -45,12 +45,11 @@ function loadCards(array) {
     cardsContainer.appendChild(card);
 
     card.addEventListener('click', () => {
-        // Предотвращаем клик по перевернутым или совпадающим картам
+        // Убираем клик по перевернутым и совпадающим картам
         if (card.classList.contains("flip") || card.classList.contains("match")) {
             return;
         }
     
-        // Переворачиваем карту
         flipCard(card);
     
         // Если не выбрана ни одна карта
@@ -83,7 +82,7 @@ function loadCards(array) {
                     firstCard = null;
                     secondCard = null; 
                     errors++; // Увеличиваем счетчик ошибок
-                    recentScore.innerText = errors; // Обновляем счетчик ошибок
+                    recentScore.innerText = errors; // Обновляем значение счетчика
                 }, 500);
             }
     
@@ -129,7 +128,7 @@ function flipAllCards() {
         card.classList.add('flip');
     });
 
-    // Обратный переворот через 1 сек
+    // Обратный переворот через 1,5 сек
     setTimeout(() => {
         cards.forEach(card => {
             card.classList.remove('flip');
