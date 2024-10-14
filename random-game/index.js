@@ -16,7 +16,7 @@ const muteButton = document.getElementById("muteButton");
 const result = document.querySelector(".result")
 
 const cardSound = new Audio();
-cardSound.src = "./sounds/Cardflip1.mp3"
+cardSound.src = "./sounds/Cardflip4.mp3"
 
 const backgroundMusic = new Audio ();
 backgroundMusic.src = "./sounds/Theme1.mp3"
@@ -60,7 +60,6 @@ function loadCards(array) {
 
     card.addEventListener('click', () => {
         backgroundMusic.play();
-        cardSound.play();
         // Убираем клик по перевернутым и совпадающим картам
         if (card.classList.contains("flip") || card.classList.contains("match")) {
             return;
@@ -70,9 +69,11 @@ function loadCards(array) {
     
         // Если не выбрана ни одна карта
         if (firstCard === null) {
+            cardSound.play()
             firstCard = card;
             // console.log("firstCard", firstCard);
         } else {
+            cardSound.play()
             // Если первая карта уже выбрана, то это вторая карта
             secondCard = card;
             // console.log("secondCard", secondCard);
@@ -210,11 +211,11 @@ currentVolume.addEventListener("mousedown", (e) => {
             if (isMuted) {
                 backgroundMusic.volume = 1; // Громкость 100%
                 // cardSound.volume = 1;
-                muteButton.innerText = "volume_off";
+                muteButton.innerText = "volume_up";
             } else {
                 backgroundMusic.volume = 0; // Громкость 0
                 // cardSound.volume = 0;
-                muteButton.innerText = "volume_up";
+                muteButton.innerText = "volume_off";
             }
             // Меняем состояние
             isMuted = !isMuted;
