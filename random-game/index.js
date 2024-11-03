@@ -16,12 +16,17 @@ const muteButton = document.getElementById("muteButton");
 const result = document.querySelector(".result")
 
 const cardSound = new Audio();
-cardSound.src = "./sounds/Cardflip4.mp3"
+cardSound.src = "./sounds/Cardflip6.wav"
 
 const backgroundMusic = new Audio ();
-backgroundMusic.src = "./sounds/Theme1.mp3"
+backgroundMusic.src = "./sounds/Theme1.mp3" 
 backgroundMusic.loop = true;
 
+const btnSound = new Audio();
+btnSound.src = "./sounds/Cool_App_Button_1.wav"
+
+const winSound = new Audio();
+winSound.src = "./sounds/Audrey's Dance(short).wav"
 
 
 let isDragging = false;
@@ -122,12 +127,15 @@ function loadCards(array) {
                     }
                 })
 
+
                 setTimeout(function() {
+                    backgroundMusic.pause();
+                    winSound.play();
                     body.classList.add('noscroll');
                     modal.style.display = "flex";
                 }, 600);
             }
-        }
+        } 
     });
     
     return card;
@@ -167,14 +175,21 @@ function shuffleCards() {
 
 
 restartBtn.addEventListener("click", () => {
-    window.location.reload();
+    btnSound.play();
+    setTimeout(function() {
+        window.location.reload();
+    }, 100);
 });
 
 modalRestartBtn.addEventListener("click", () => {
-    window.location.reload();
+    btnSound.play();
+    setTimeout(function() {
+        window.location.reload();
+    }, 100);
 });
 
 modalcloseBtn.addEventListener ("click", () => {
+    btnSound.play();
     body.classList.remove('noscroll');
     modal.style.display = "none";
 });
