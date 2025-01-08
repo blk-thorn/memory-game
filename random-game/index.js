@@ -81,7 +81,6 @@ function loadCards(array) {
             cardSound.play()
             // Если первая карта уже выбрана, то это вторая карта
             secondCard = card;
-            // console.log("secondCard", secondCard);
     
             // Сравниваем карты
             const firstCardFace = firstCard.querySelector(".card__face");
